@@ -5,7 +5,7 @@
 <html lang="en">
 
 <head>
-    <title>KenzoCoffer's Grocery Store</title>
+    <title>Spacebank</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
@@ -58,7 +58,7 @@
         }
 
         .links {
-            background-color: #4CAF50; /* Change to green */
+            background-color: #4CAF50;
             overflow: hidden;
             display: flex;
             justify-content: center;
@@ -90,7 +90,7 @@
 
         input[type="submit"],
         input[type="reset"] {
-            background-color: #4CAF50; /* Change to green */
+            background-color: #4CAF50;
             color: #fff;
             cursor: pointer;
         }
@@ -131,7 +131,7 @@
 
         .product-price {
             font-weight: bold;
-            color: #4CAF50; /* Change to green */
+            color: #4CAF50;
         }
 
         .add-to-cart-link {
@@ -150,7 +150,7 @@
     </div>
 
     <div class="header-ribbon">
-        <div class="header-title">Welcome to KenzoCoffer's Grocery Store</div>
+        <div class="header-title">Welcome to Spacebanks</div>
         <div class="user-info">
             Welcome,
             <% 
@@ -177,93 +177,42 @@
         <input type="reset" value="Reset"> (Leave blank for all products)
     </form>
 
-    <% 
-        // Get product name and category to search for
-        String name = request.getParameter("productName");
-        String category = request.getParameter("category");
-
-        try {
-            // Load driver class
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-        } catch (java.lang.ClassNotFoundException e) {
-            out.println("ClassNotFoundException: " + e);
-        }
-
-        // Make the connection
-        getConnection();
-
-        String heading = "All Products";
-
-        if (name != null && !name.isEmpty()) {
-            heading = "Products containing '" + name + "'";
-        }
-
-        if (category != null && !category.isEmpty()) {
-            heading += " in category '" + category + "'";
-        }
-    %>
-
     <div class="product-card-container">
-        <%
-            String sql = "SELECT productId, productName, productPrice, productImageURL FROM product ";
-            if (name != null && !name.isEmpty()) {
-                sql += " WHERE productName LIKE ?";
-                if (category != null && !category.isEmpty()) {
-                    sql += " AND categoryId = (SELECT categoryId FROM category WHERE categoryName = ?)";
-                }
-            } else if (category != null && !category.isEmpty()) {
-                sql += " WHERE categoryId = (SELECT categoryId FROM category WHERE categoryName = ?)";
-            }
+        <%-- Product 1 --%>
+        <div class="product-card">
+            <img src="<%= productImagePath1 %>" class="product-image" alt="Product 1">
+            <div class="product-details">
+                <div class="product-price">$X.XX</div>
+                <div class="add-to-cart-link"><a href="#">Add to Cart</a></div>
+            </div>
+        </div>
 
-            try (PreparedStatement ps = con.prepareStatement(sql)) {
-                int parameterIndex = 1;
-                if (name != null && !name.isEmpty()) {
-                    ps.setString(parameterIndex++, "%" + name + "%");
-                    if (category != null && !category.isEmpty()) {
-                        ps.setString(parameterIndex++, category);
-                    }
-                } else if (category != null && !category.isEmpty()) {
-                    ps.setString(parameterIndex++, category);
-                }
+        <%-- Product 2 --%>
+        <div class="product-card">
+            <img src="<%= productImagePath2 %>" class="product-image" alt="Product 2">
+            <div class="product-details">
+                <div class="product-price">$X.XX</div>
+                <div class="add-to-cart-link"><a href="#">Add to Cart</a></div>
+            </div>
+        </div>
 
-                NumberFormat currFormat = NumberFormat.getCurrencyInstance();
-                ResultSet rst = ps.executeQuery();
+        <%-- Product 3 --%>
+        <div class="product-card">
+            <img src="<%= productImagePath3 %>" class="product-image" alt="Product 3">
+            <div class="product-details">
+                <div class="product-price">$X.XX</div>
+                <div class="add-to-cart-link"><a href="#">Add to Cart</a></div>
+            </div>
+        </div>
 
-                if (!rst.isBeforeFirst()) {
-                    out.println("<p>No products found</p>");
-                } else {
-                    while (rst.next()) {
-                        int productId = rst.getInt("productId");
-                        String productName = rst.getString("productName");
-                        Double productPrice = rst.getDouble("productPrice");
-                        String productImageURL = rst.getString("productImageURL");
-                        String productDetailLink = "product.jsp?id=" + productId;
-                        String addCartLink = "addcart.jsp?id=" + productId +
-                                "&name=" + URLEncoder.encode(productName, "UTF-8") +
-                                "&price=" + productPrice;
-                    %>
-
-                    <div class="product-card">
-                        <img class="product-image" src="<%= productImageURL %>" alt="<%= productName %>">
-                        <div class="product-details">
-                            <h4><a href="<%= productDetailLink %>"><%= productName %></a></h4>
-                            <p class="product-price"><%= currFormat.format(productPrice) %></p>
-                            <p class="add-to-cart-link"><a href="<%= addCartLink %>">Add to Cart</a></p>
-                        </div>
-                    </div>
-
-                    <%
-                    }
-                }
-            }
-            // Print out the ResultSet
-            // For each product, create a link of the form
-            // addcart.jsp?id=productId&name=productName&price=productPrice
-            closeConnection();
-            // Useful code for formatting currency values:
-            // NumberFormat currFormat = NumberFormat.getCurrencyInstance();
-            // out.println(currFormat.format(5.0));    // Prints $5.00
-        %>
+        <%-- Product 4 --%>
+        <div class="product-card">
+            <img src="<%= productImagePath4 %>" class="product-image" alt="Product 4">
+            <div class="product-details">
+                <div class="product-price">$X.XX</div>
+                <div class="add-to-cart-link"><a href="#">Add to Cart</a></div>
+            </div>
+        </div>
     </div>
 </body>
 </html>
