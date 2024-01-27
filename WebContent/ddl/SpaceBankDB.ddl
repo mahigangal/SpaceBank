@@ -91,8 +91,6 @@ insert into Market(prodId, prodName,prodPrice,prodDesc, cap, prodImageURL) value
 ('P6','Hygiene Products',14.30,'Includes soap, feminine hygiene products and dental care',60,'img/hygiene products.jpeg'),
 ('P7','Spices',18.00,'A bunch of exotic spices including chili powder, coriander powder, etc.',10,'img/spices.jpeg');
 
-
-
 insert into Restaurant(prodId, prodName,prodPrice,prodDesc, cap, prodImageURL) values
 ('R1','Chicken Biryani',14.50,'Savory chicken and rice dish that includes layers of chicken, rice, and aromatics.',10,'img/chickenbiryani.jpeg'),
 ('R2','Bruschetta',8.00,'Slice of garlic bread toasted in the oven topped with olive oil, tomatoes and salt',25,'img/garlicbreadbruschetta.jpeg'),
