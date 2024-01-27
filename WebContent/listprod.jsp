@@ -176,11 +176,17 @@
         <input type="submit" value="Submit">
         <input type="reset" value="Reset"> (Leave blank for all products)
     </form>
+    <!-- <%
+    // Get the context path
+    String contextPath = request.getContextPath();
+%>
 
-    <div class="product-card-container">
+<p>Context Path: <%= contextPath %></p> -->
+<div class="product-card-container">
         <%-- Service 1 --%>
         <div class="product-card">
-            <img src="<%= request.getContextPath() %>=/SpaceBank/WebContent/img/gym.jpeg" class="product-image" alt="Gym">
+            <img src="<%= request.getContextPath() %>WebContent/img/gym.jpeg" class="product-image" alt="Gym">
+                  
             <div class="product-details">
                 <div class="product-price">$5.00</div>
                 <div class="add-to-cart-link"><a href="#">Add to Cart</a></div>
@@ -200,8 +206,8 @@
         <div class="product-card">
             <img src="<%=  request.getContextPath() %>/WebContent/img/market.jpeg%>" class="product-image" alt="Market">
             <div class="product-details">
-                <div class="product-price">$X.XX</div>
-                <div class="add-to-cart-link"><a href="#">Add to Cart</a></div>
+                <!-- <div class="product-price">$X.XX</div> -->
+                <div class="add-to-cart-link"><a href="#">View</a></div>
             </div>
         </div>
 
