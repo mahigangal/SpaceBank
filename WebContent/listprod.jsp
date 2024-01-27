@@ -186,7 +186,7 @@
         <%-- Service 1 --%>
         <div class="product-card">
             <img src="<%= request.getContextPath() %>WebContent/img/gym.jpeg" class="product-image" alt="Gym">
-            
+                  
             <div class="product-details">
                 <div class="product-price">$5.00</div>
                 <div class="add-to-cart-link"><a href="#">Add to Cart</a></div>

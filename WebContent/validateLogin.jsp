@@ -33,7 +33,7 @@
 				try {
 					getConnection();
 		
-					String sql = "SELECT userId FROM customer WHERE userId = ? AND password = ?";
+					String sql = "SELECT name FROM SpaceStation WHERE name = ? AND pwd = ?";
 					try (PreparedStatement pstmt = con.prepareStatement(sql)) {
 						pstmt.setString(1, username);
 						pstmt.setString(2, password);
