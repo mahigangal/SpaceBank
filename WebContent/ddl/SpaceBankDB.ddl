@@ -40,3 +40,58 @@ INSERT INTO User(name,stnId,pwd,sbucks) values
 ('Pratham','S5','Pratham123@',920000),
 ('Mahi','S1','Mahi123@',919999),
 ('Sparsh','S2','Sparsh123@',400);
+
+
+
+CREATE TABLE services(
+servId char(2) primary key,
+servName varchar(40),
+cost float(5,2),
+servImageURL varchar(150)
+);
+
+
+CREATE TABLE Market(
+prodId char(3) PRIMARY KEY,
+prodName varchar(40),
+prodPrice float(5,2),
+prodDesc varchar(100),
+cap int,
+prodImageURL varchar(150)
+);
+alter table services modify servId char(4);
+
+CREATE TABLE Restaurant(
+prodId char(3) PRIMARY KEY,
+prodName varchar(40),
+prodPrice float(5,2),
+prodDesc varchar(100),
+cap int,
+prodImageURL varchar(150)
+);
+insert into services(servId, servName,cost,servImageURL) values
+('SV1','Fitness Center',7.50,'img/gym.jpeg'),
+('SV2','Laundromat',8.00,'img/gym.jpeg'),
+('SV3','Swimming Pool',5.50,'img/pool.jpeg'),
+('SV4','Market',0.00,'img/market.jpeg'),
+('SV5','Restaurant',0.00,'img/restaurant.jpeg');
+
+insert into Market(prodId, prodName,prodPrice,prodDesc, cap, prodImageURL) values
+('P1','Bread',4.50,'Flour based white bread, contains gluten and dairy',30,'img/bread.jpeg'),
+('P2','Chicken Breasts',14.75,'Boneless and Skinless Chicken Breasts, 4 breasts',25,'img/chicken.jpeg'),
+('P3','Brown Eggs',7.50,'A dozen chicken eggs',40,'img/eggs.jpeg'),
+('P4','Vegetables',9.25,'Fresh produce made from our space garden',60,'img/freshproduce.jpeg'),
+('P5','Milk',5.75,'2% milk, 750ml',45,'img/milk.jpeg');
+
+
+insert into Restaurant(prodId, prodName,prodPrice,prodDesc, cap, prodImageURL) values
+('R1','Chicken Biryani',14.50,'Savory chicken and rice dish that includes layers of chicken, rice, and aromatics.',10,'img/chickenbiryani.jpeg'),
+('R2','Bruschetta',8.00,'Slice of garlic bread toasted in the oven topped with olive oil, tomatoes and salt',25,'img/garlicbreadbruschetta.jpeg'),
+('R3','Grilled Chicken',12.50,'Juicy chicken breast seasoned and grilled over an open flame',30,'img/grilledchicken.jpeg'),
+('R4','Maggi',4.25,'Clasic Indian snack',50,'img/maggi.jpeg'),
+('R5','Omelette',6.75,'A dish made by mixing eggs together and frying them',45,'img/omelette.jpeg'),
+('R6','Marinara Pasta',14.00,'Pasta tossed in a tomato sauce usually made with tomatoes, garlic, herbs, and onions.',30,'img/pasta.jpeg');
+
+insert into Market(prodId, prodName,prodPrice,prodDesc, cap, prodImageURL) values
+('P6','Hygiene Products',14.30,'Includes soap, feminine hygiene products and dental care',60,'img/hygiene products.jpeg'),
+('P7','Spices',18.00,'A bunch of exotic spices including chili powder, coriander powder, etc.',10,'img/spices.jpeg');
