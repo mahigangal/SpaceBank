@@ -178,41 +178,50 @@
     </form>
 
     <div class="product-card-container">
-        <%-- Product 1 --%>
+        <%-- Service 1 --%>
         <div class="product-card">
-            <img src="<%= productImagePath1 %>" class="product-image" alt="Product 1">
+            <img src="<%= request.getContextPath() %>/WebContent/img/gym.jpeg" class="product-image" alt="Gym">
+            <div class="product-details">
+                <div class="product-price">$5.00</div>
+                <div class="add-to-cart-link"><a href="#">Add to Cart</a></div>
+            </div>
+        </div>
+
+        <%-- Service 2 --%>
+        <div class="product-card">
+            <img src="<%=  request.getContextPath() %>/WebContent/img/laundry.jpeg %>" class="product-image" alt="Laundry">
+            <div class="product-details">
+                <div class="product-price">$8.00</div>
+                <div class="add-to-cart-link"><a href="#">Add to Cart</a></div>
+            </div>
+        </div>
+
+        <%-- Service 3 --%>
+        <div class="product-card">
+            <img src="<%=  request.getContextPath() %>/WebContent/img/market.jpeg%>" class="product-image" alt="Market">
             <div class="product-details">
                 <div class="product-price">$X.XX</div>
                 <div class="add-to-cart-link"><a href="#">Add to Cart</a></div>
             </div>
         </div>
 
-        <%-- Product 2 --%>
+        <%-- Service 4 --%>
         <div class="product-card">
-            <img src="<%= productImagePath2 %>" class="product-image" alt="Product 2">
+            <img src="<%= request.getContextPath() %>/WebContent/img/pool.jpeg %>" class="product-image" alt="Pool">
             <div class="product-details">
-                <div class="product-price">$X.XX</div>
+                <div class="product-price">$3.00</div>
                 <div class="add-to-cart-link"><a href="#">Add to Cart</a></div>
             </div>
         </div>
-
-        <%-- Product 3 --%>
+        <%-- Service 5 --%>
         <div class="product-card">
-            <img src="<%= productImagePath3 %>" class="product-image" alt="Product 3">
+            <img src="<%=  request.getContextPath() %>/WebContent/img/laundry.jpeg %>" class="product-image" alt="Resto">
             <div class="product-details">
-                <div class="product-price">$X.XX</div>
+                <div class="product-price">$15.00</div>
                 <div class="add-to-cart-link"><a href="#">Add to Cart</a></div>
             </div>
         </div>
-
-        <%-- Product 4 --%>
-        <div class="product-card">
-            <img src="<%= productImagePath4 %>" class="product-image" alt="Product 4">
-            <div class="product-details">
-                <div class="product-price">$X.XX</div>
-                <div class="add-to-cart-link"><a href="#">Add to Cart</a></div>
-            </div>
-        </div>
+      
     </div>
 </body>
 </html>
