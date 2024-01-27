@@ -7,32 +7,11 @@
         body {
             margin: 0;
             padding: 0;
-            font-family: 'Arial', sans-serif;
+            font-family: 'Titillium Web', sans-serif;
             height: 100vh;
             overflow: hidden;
-            background-color: #f5f5f5;
-        }
-
-        .navbar {
-            display: flex;
-            justify-content: center;
-            background-color: #4CAF50;
-            overflow: hidden;
-        }
-
-        .navbar a {
-            float: none;
-            display: inline-block;
-            color: #ffffff;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-            font-size: 18px;
-        }
-
-        .navbar a:hover {
-            background-color: #ddd;
-            color: black;
+            background-color: #000;
+            cursor: default; /* Default cursor style */
         }
 
         .background-container {
@@ -41,7 +20,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('<%= request.getContextPath() %>/Backgroud%20Image/bg.jpg');
+            background-image: url('<%= request.getContextPath() %>/img/Space.jpg');
             background-size: cover;
             background-position: center;
             z-index: -1;
@@ -49,71 +28,99 @@
 
         .container {
             position: absolute;
-            top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%);
+            transform: translateX(-50%);
             text-align: center;
             color: #fff;
+            width: 100%;
         }
 
-        h1,
-        h2,
-        h3,
-        h4 {
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        .spacecraft {
+            position: absolute;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            width: 30px; /* Adjusted spacecraft size */
+            max-width: 100%; /* Added max-width property for image */
         }
 
         h1 {
+            font-family: 'Bangers', cursive;
+            text-align: center;
+            color: #fff;
             font-size: 3em;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 2px solid #fff;
+            animation: typing 3s steps(15, end);
+            display: inline-block;
         }
 
-        h2 {
-            font-size: 2em;
-            margin: 10px 0;
+        .cursor-hidden {
+            cursor: none; /* Hide the cursor */
         }
 
-        h3 {
-            font-size: 1.5em;
-            margin: 10px 0;
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
         }
 
-        h4 {
-            font-size: 1.2em;
-            margin: 5px 0;
-        }
-
-        a {
-            text-decoration: none;
-            color: #4CAF50;
-            transition: color 0.3s ease;
-        }
-
-        a:hover {
-            color: #3E71B7;
+        .spacecraft:hover {
+            transform: scale(1.1);
         }
     </style>
 </head>
 
 <body>
-    <div class="navbar">
-        <a href="login.jsp">Login</a>
-        <a href="listprod.jsp">Services</a>
-        <a href="useraccount.jsp">User Account</a>
-        <a href="admin.jsp">Administrators</a>
-        <a href="logout.jsp">Log out</a>
+    <!-- Seven spacecraft images -->
+    <!-- Adjust top and left values for each spacecraft to position them uniquely -->
+    <div class="spacecraft" id="spacecraft1" style="top: 30%; left: 0.1%;" onmouseover="showSpacecraftName('Spacecraft 1')" onmouseout="hideSpacecraftName()">
+        <img src="<%= request.getContextPath() %>/img/spacecraft1.png" alt="Spacecraft 1"  width="500" height="300">
     </div>
+     
+    <div class="spacecraft" id="spacecraft1" style="top: 7%; left: 15%;" onmouseover="showSpacecraftName('Spacecraft 1')" onmouseout="hideSpacecraftName()">
+        <img src="<%= request.getContextPath() %>/img/spacecraft1.png" alt="Spacecraft 1"  width="500" height="300">
+    </div>
+   
+    <div class="spacecraft" id="spacecraft1" style="top: 8%; left: 40%;" onmouseover="showSpacecraftName('Spacecraft 1')" onmouseout="hideSpacecraftName()">
+        <img src="<%= request.getContextPath() %>/img/spacecraft1.png" alt="Spacecraft 1"  width="500" height="300">
+    </div>
+    
+    <div class="spacecraft" id="spacecraft1" style="top: 20%; left: 70%;" onmouseover="showSpacecraftName('Spacecraft 1')" onmouseout="hideSpacecraftName()">
+        <img src="<%= request.getContextPath() %>/img/spacecraft1.png" alt="Spacecraft 1"  width="500" height="300">
+    </div>
+    
+    <div class="spacecraft" id="spacecraft1" style="top: 55%; left: 65%;" onmouseover="showSpacecraftName('Spacecraft 1')" onmouseout="hideSpacecraftName()">
+        <img src="<%= request.getContextPath() %>/img/spacecraft1.png" alt="Spacecraft 1"  width="500" height="300">
+    </div>
+    
+    <div class="spacecraft" id="spacecraft1" style="top: 60%; left: 31%;" onmouseover="showSpacecraftName('Spacecraft 1')" onmouseout="hideSpacecraftName()">
+        <img src="<%= request.getContextPath() %>/img/spacecraft1.png" alt="Spacecraft 1"  width="500" height="300">
+    </div>
+
+    <div class="spacecraft" id="spacecraft1" style="top: 60%; left: 5%;" onmouseover="showSpacecraftName('Spacecraft 1')" onmouseout="hideSpacecraftName()">
+        <img src="<%= request.getContextPath() %>/img/spacecraft1.png" alt="Spacecraft 1"  width="500" height="300">
+    </div>
+    
+    <!-- Repeat similar divs for other spacecraft -->
 
     <div class="background-container"></div>
     <div class="container">
         <h1>Welcome to Space Bank</h1>
-
-        <%
-            String userName = (String) session.getAttribute("authenticatedUser");
-            if (userName != null)
-                out.println("<h3>Signed in as: " + userName + "</h3>");
-        %>
     </div>
+
+    <script src="scripts.js"></script>
+    <script>
+        // Add event listener to hide cursor after animation
+        document.querySelector('.container h1').addEventListener('animationend', function () {
+            
+        });
+    </script>
 </body>
 
 </html>
