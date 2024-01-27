@@ -30,21 +30,24 @@
 		if((username.length() == 0) || (password.length() == 0))
 				return null;
 
-				try {
-					getConnection();
-		
-					String sql = "SELECT name FROM SpaceStation WHERE name = ? AND pwd = ?";
-					try (PreparedStatement pstmt = con.prepareStatement(sql)) {
-						pstmt.setString(1, username);
-						pstmt.setString(2, password);
-		
-						try (ResultSet rs = pstmt.executeQuery()) {
-							if (rs.next()) {
-								retStr = rs.getString("userId");
-							}
-						}
-					}
-				}
+		try 
+		{
+			getConnection();
+			
+			// TODO: Check if userId and password match some customer account. If so, set retStr to be the username.
+			PreparedStatement pstmt = con.prepareStatement("SELECT * FROM Users WHERE name = ? AND pwd = ?");
+			pstmt.setString(1, username);
+			pstmt.setString(2, password);
+			ResultSet rst = pstmt.executeQuery();
+			if(rst.next()){
+				retStr = username;
+				
+			}
+			else{
+				retStr = null;
+			}
+					
+		} 
 		catch (SQLException ex) {
 			out.println(ex);
 		}
