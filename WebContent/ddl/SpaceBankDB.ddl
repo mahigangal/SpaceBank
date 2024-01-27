@@ -41,8 +41,8 @@ VALUES
 
 
 INSERT INTO Users(name,stnId,pwd,sbucks) values
-('Mithish','S3','Mithish123@',800000),
-('Pratham','S5','Pratham123@',920000),
+('Mithish','S3','123@',800000),
+('Pratham','S5','Prath123@',920000),
 ('Mahi','S1','Mahi123@',919999),
 ('Sparsh','S2','Sparsh123@',400);
 
