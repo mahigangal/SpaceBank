@@ -2,6 +2,7 @@
     "java.project.referencedLibraries": [
         "lib/**/*.jar",
         "code/mysql-connector-java-8.0.27.jar",
-        "code/mssql-jdbc-11.2.0.jre11.jar"
+        "code/mssql-jdbc-11.2.0.jre11.jar",
+        "mysql-connector-java-8.0.27 (3).jar"
     ]
 }

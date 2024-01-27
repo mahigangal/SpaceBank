@@ -21,7 +21,7 @@ catch (java.lang.ClassNotFoundException e)
     throw new SQLException("ClassNotFoundException: " +e);
 }
 
-String fileName = "/usr/local/tomcat/webapps/shop/ddl/SQLServer_orderdb.ddl";
+String fileName = "/usr/local/tomcat/webapps/shop/ddl/SpaceBankDB.ddl";
 
 try ( Connection con = DriverManager.getConnection(urlForLoadData, uid, pw); )
 {      

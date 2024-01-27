@@ -2,7 +2,7 @@ import java.sql.*;
 
 public class MyJDBC
 {	public static void main(String[] args)
-	{	String url = "cosc304.ok.ubc.ca";
+	{	String url = "jdbc:mysql://localhost/workson";
 		String uid = "testuser";
 		String pw = "todo";
 
