@@ -5,7 +5,7 @@
 <html lang="en">
 
 <head>
-    <title>Spacebank</title>
+    <title>SpaceBank</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
@@ -150,7 +150,7 @@
     </div>
 
     <div class="header-ribbon">
-        <div class="header-title">Welcome to Spacebanks</div>
+        <div class="header-title">Welcome to SpaceBanks</div>
         <div class="user-info">
             Welcome,
             <% 
@@ -164,15 +164,7 @@
 
     <form method="get" action="listprod.jsp">
         <input type="text" name="productName" placeholder="Product Name">
-        <select name="category">
-            <option value="">All</option>
-            <option value="Beverages">Beverages</option>
-            <option value="Condiments">Condiments</option>
-            <option value="Dairy Products">Dairy Products</option>
-            <option value="Produce">Produce</option>
-            <option value="Confections">Confections</option>
-            <option value="Grains/Cereals">Grains/Cereals</option>
-        </select>
+        
         <input type="submit" value="Submit">
         <input type="reset" value="Reset"> (Leave blank for all products)
     </form>
@@ -185,7 +177,7 @@
 <div class="product-card-container">
         <%-- Service 1 --%>
         <div class="product-card">
-            <img src="<%= request.getContextPath() %>WebContent/img/gym.jpeg" class="product-image" alt="Gym">
+            <img src="img/gym.jpeg" class="product-image" alt="Gym">
                   
             <div class="product-details">
                 <div class="product-price">$5.00</div>
@@ -195,7 +187,7 @@
 
         <%-- Service 2 --%>
         <div class="product-card">
-            <img src="<%=  request.getContextPath() %>/WebContent/img/laundry.jpeg %>" class="product-image" alt="Laundry">
+            <img src="img/laundry.jpeg" class="product-image" alt="Laundry">
             <div class="product-details">
                 <div class="product-price">$8.00</div>
                 <div class="add-to-cart-link"><a href="#">Add to Cart</a></div>
@@ -204,7 +196,7 @@
 
         <%-- Service 3 --%>
         <div class="product-card">
-            <img src="<%=  request.getContextPath() %>/WebContent/img/market.jpeg%>" class="product-image" alt="Market">
+            <img src="img/market.jpeg" class="product-image" alt="Market">
             <div class="product-details">
                 <!-- <div class="product-price">$X.XX</div> -->
                 <div class="add-to-cart-link"><a href="#">View</a></div>
@@ -213,7 +205,7 @@
 
         <%-- Service 4 --%>
         <div class="product-card">
-            <img src="<%= request.getContextPath() %>/WebContent/img/pool.jpeg %>" class="product-image" alt="Pool">
+            <img src="img/pool.jpeg" class="product-image" alt="Pool">
             <div class="product-details">
                 <div class="product-price">$3.00</div>
                 <div class="add-to-cart-link"><a href="#">Add to Cart</a></div>
@@ -221,7 +213,7 @@
         </div>
         <%-- Service 5 --%>
         <div class="product-card">
-            <img src="<%=  request.getContextPath() %>/WebContent/img/laundry.jpeg %>" class="product-image" alt="Resto">
+            <img src="img/restaurant.jpeg" class="product-image" alt="Resto">
             <div class="product-details">
                 <div class="product-price">$15.00</div>
                 <div class="add-to-cart-link"><a href="#">Add to Cart</a></div>
