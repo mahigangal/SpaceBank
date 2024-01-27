@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>KenzoCoffer's Grocery Main Page</title>
+    <title>Spacebank</title>
     <style>
         body {
             margin: 0;
@@ -14,13 +14,15 @@
         }
 
         .navbar {
+            display: flex;
+            justify-content: center;
             background-color: #4CAF50;
             overflow: hidden;
         }
 
         .navbar a {
-            float: left;
-            display: block;
+            float: none;
+            display: inline-block;
             color: #ffffff;
             text-align: center;
             padding: 14px 16px;
@@ -96,26 +98,21 @@
 <body>
     <div class="navbar">
         <a href="login.jsp">Login</a>
-        <a href="listprod.jsp">Begin Shopping</a>
-        <a href="listorder.jsp">List All Orders</a>
-        <a href="customer.jsp">Customer Info</a>
+        <a href="listprod.jsp">Services</a>
         <a href="useraccount.jsp">User Account</a>
         <a href="admin.jsp">Administrators</a>
-        <a href="https://youtu.be/W1grZX0GyEs" target="_blank">Website Walkthrough</a>
         <a href="logout.jsp">Log out</a>
     </div>
 
     <div class="background-container"></div>
     <div class="container">
-        <h1>Welcome to KenzoCoffer's Grocery</h1>
+        <h1>Welcome to Space Bank</h1>
 
         <%
             String userName = (String) session.getAttribute("authenticatedUser");
             if (userName != null)
                 out.println("<h3>Signed in as: " + userName + "</h3>");
         %>
-
-       
     </div>
 </body>
 
