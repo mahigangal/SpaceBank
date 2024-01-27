@@ -12,11 +12,11 @@
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f8f9fa;
+            background-color: black;
         }
 
         .navbar {
-            background-color: #4CAF50;
+            background-color: black;
             overflow: hidden;
             display: flex;
             justify-content: flex-end;
@@ -24,7 +24,7 @@
         }
 
         .navbar a {
-            color: white;
+            color: beige;
             text-decoration: none;
             margin: 0 15px;
             font-size: 18px;
@@ -32,8 +32,8 @@
 
         .header-ribbon {
             position: relative;
-            background-color: #4CAF50;
-            color: white;
+            background-color: black;
+            color: beige;
             text-align: center;
             padding: 40px;
             font-size: 35px;
@@ -53,12 +53,12 @@
             position: absolute;
             top: 20px;
             right: 20px;
-            color: #333;
+            color: beige;
             font-size: 15px;
         }
 
         .links {
-            background-color: #4CAF50;
+            background-color: black;
             overflow: hidden;
             display: flex;
             justify-content: center;
@@ -66,7 +66,7 @@
         }
 
         .links a {
-            color: white;
+            color: beige;
             text-decoration: none;
             margin: 0 15px;
             font-size: 18px;
@@ -90,8 +90,8 @@
 
         input[type="submit"],
         input[type="reset"] {
-            background-color: #4CAF50;
-            color: #fff;
+            background-color: black;
+            color: beige;
             cursor: pointer;
         }
 
@@ -103,12 +103,12 @@
         }
 
         .product-card {
-            border: 1px solid #ddd;
+            border: 1px solid bisque;
             border-radius: 8px;
             overflow: hidden;
             margin: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            background-color: #fff;
+            background-color: bisque;
             display: flex;
             flex-direction: column;
             height: 400px;
@@ -131,7 +131,7 @@
 
         .product-price {
             font-weight: bold;
-            color: #4CAF50;
+            color: black;
         }
 
         .add-to-cart-link {
@@ -181,6 +181,7 @@
                   
             <div class="product-details">
                 <div class="product-price">$7.50</div>
+                <div class="prouct-name">Fitness Center</div>
                 <div class="add-to-cart-link"><a href="#">Add to Cart</a></div>
             </div>
         </div>
@@ -190,6 +191,7 @@
             <img src="img/laundry.jpeg" class="product-image" alt="Laundry">
             <div class="product-details">
                 <div class="product-price">$8.00</div>
+                <div class="prouct-name">Laundromat</div>
                 <div class="add-to-cart-link"><a href="#">Add to Cart</a></div>
             </div>
         </div>
@@ -198,8 +200,8 @@
         <div class="product-card">
             <img src="img/market.jpeg" class="product-image" alt="Market">
             <div class="product-details">
-                <!-- <div class="product-price">$X.XX</div> -->
-                <div class="add-to-cart-link"><a href="#">View</a></div>
+                <div class="prouct-name">Market</div>
+                <div class="add-to-cart-link"><a href="listmarket.jsp">View</a></div>
             </div>
         </div>
 
@@ -208,6 +210,7 @@
             <img src="img/pool.jpeg" class="product-image" alt="Pool">
             <div class="product-details">
                 <div class="product-price">$5.50</div>
+                <div class="prouct-name">Swimming Pool</div>
                 <div class="add-to-cart-link"><a href="#">Add to Cart</a></div>
             </div>
         </div>
@@ -215,8 +218,9 @@
         <div class="product-card">
             <img src="img/restaurant.jpeg" class="product-image" alt="Resto">
             <div class="product-details">
-                <div class="product-price">$15.00</div>
-                <div class="add-to-cart-link"><a href="#">Add to Cart</a></div>
+                
+                <div class="prouct-name">Restaurant</div>
+                <div class="add-to-cart-link"><a href="listrestaurant.jsp">View</a></div>
             </div>
         </div>
       
