@@ -1,3 +1,4 @@
+DROP DATABASE SpaceBank;
 CREATE DATABASE SpaceBank;
 USE SpaceBank;
 DROP TABLE IF EXISTS SpaceStation;
