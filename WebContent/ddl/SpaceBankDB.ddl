@@ -135,7 +135,7 @@ UPDATE SpaceStation
 SET survivalTime = 55.14 WHERE stnId = 'S7';
 
 CREATE TABLE ordersummary (
-    servId       INT IDENTITY,
+    orderId       INT IDENTITY,
     totalAmount  DECIMAL(10,2),
     Shipname     varchar(100),
     customerId          INT,
@@ -143,6 +143,18 @@ CREATE TABLE ordersummary (
     PRIMARY KEY (orderId),
     FOREIGN KEY (firstname) REFERENCES Users(firstname)
     ON UPDATE CASCADE ON DELETE CASCADE 
+);
+
+CREATE TABLE orderproduct (
+    orderId             INT,
+    servId           char(2),
+    quantity            INT,
+    price               DECIMAL(10,2),  
+    PRIMARY KEY (orderId, servId),
+    FOREIGN KEY (orderId) REFERENCES ordersummary(orderId)
+        ON UPDATE CASCADE ON DELETE CASCADE,
+    FOREIGN KEY (servId) REFERENCES services(servId)
+        ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 
