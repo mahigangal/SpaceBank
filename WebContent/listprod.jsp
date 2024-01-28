@@ -41,19 +41,17 @@
             display: flex;
             justify-content: space-between;
         }
-        .background-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background-image: url('<%= request.getContextPath() %>WebContent/img/Space.jpg'); /* Replace with your background image path */
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            filter: brightness(0.5); /* Optional: Adjust the brightness of the background */
-        }
+            .background-container {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-image: url('<%= request.getContextPath() %>/img/Space.jpg');
+                background-size: cover;
+                background-position: center;
+                z-index: -1;
+            }
         .header-title {
             position: absolute;
             top: 50%;
@@ -237,5 +235,6 @@
         </div>
       
     </div>
+    <div class="background-container"></div>
 </body>
 </html>
