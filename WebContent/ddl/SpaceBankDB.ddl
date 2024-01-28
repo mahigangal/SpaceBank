@@ -1,4 +1,8 @@
-
+use master;
+alter database SpaceBank SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+DROP DATABASE IF EXISTS SpaceBank;
+CREATE DATABASE SpaceBank;
+USE SpaceBank;
 CREATE TABLE SpaceStation(
 	stnId char(2),
     stnName varchar(50),
