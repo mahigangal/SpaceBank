@@ -10,35 +10,45 @@
 <html>
 <head>
     <title>SpaceBank Order Processing</title>
+    <style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Cambria, sans-serif';
+        height: 100vh;
+        overflow: hidden;
+        background-image: url('<%= request.getContextPath() %>/img/Space.jpg');
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+</style>
 </head>
 <body>
 
 <% 
-String fname = request.getParameter("username");
-String pass = request.getParameter("password");
+String fname = (String) session.getAttribute("authenticatedUser");
+
 HashMap<String, ArrayList<Object>> productList = (HashMap<String, ArrayList<Object>>) session.getAttribute("productList");
 
 // Check if valid customer id was entered
 if (fname == null ) {
+    
     out.println("<p><strong><b>Invalid customer id. Go back to the previous page and try again</b></strong></p>");
 } else {
     try  {
         getConnection();
         String sql = "SELECT * FROM Users WHERE firstname = ?";
         try (PreparedStatement ps = con.prepareStatement(sql)) {
-            ps.setInt(1, Integer.parseInt(fname));
+            ps.setString(1,fname);
             ResultSet rst = ps.executeQuery();
 
             if (!rst.next()) {
                 out.println("<p><strong><b>Invalid customer id. Go back to the previous page and try again</b></strong></p>");
             } else {
-                String dbPassword = rst.getString("pwd");
-
-                if (pass == null || pass.isEmpty()) {
-                    out.println("<p><strong><b>Enter password!</b></strong></p>");
-                } else if (!pass.equals(dbPassword)) {
-                    out.println("<p><strong><b>Incorrect password!</b></strong></p>");
-                } else {
+                
                     // Check if the shopping cart is empty
                     if (productList == null || productList.isEmpty()) {
                         out.println("<p><strong><b>Shopping cart is empty!</b></strong></p>");
@@ -125,7 +135,7 @@ if (fname == null ) {
                 }
             }
         }
-    } catch (SQLException e) {
+     catch (SQLException e) {
         e.printStackTrace();
     } finally {
         closeConnection();
