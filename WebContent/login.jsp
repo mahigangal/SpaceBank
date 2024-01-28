@@ -23,7 +23,7 @@
         background-color: rgba(0, 0, 0, 0.5);
         padding: 20px;
         border-radius: 10px;
-        max-width: 400px; /* Set a maximum width for the container */
+        max-width: 600px; /* Set a maximum width for the container */
         width: 100%; /* Ensure container takes full width within max-width */
     }
 
