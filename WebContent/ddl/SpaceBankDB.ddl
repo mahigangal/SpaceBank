@@ -82,9 +82,9 @@ insert into services(servId, servName,cost,servImageURL) values
 
 
 ALTER TABLE services ADD quota int;
-UPDATE services SET quota=5 WHERE servId='S1';
+UPDATE services SET quota=1 WHERE servId='S1';
 UPDATE services SET quota=1 WHERE servId='S2';
-UPDATE services SET quota=2 WHERE servId='S3';
+UPDATE services SET quota=1 WHERE servId='S3';
 UPDATE services SET quota=0 WHERE servId='S4';
 UPDATE services SET quota=0 WHERE servId='S5';
 
@@ -94,23 +94,23 @@ select * from services;
 
 
 insert into Market(prodId, prodName,prodPrice,prodDesc, cap, prodImageURL) values
-('P1','Bread',4.50,'Flour based white bread, contains gluten and dairy',30,'img/bread.jpeg'),
-('P2','Chicken Breasts',14.75,'Boneless and Skinless Chicken Breasts, 4 breasts',25,'img/chicken.jpeg'),
-('P3','Brown Eggs',7.50,'A dozen chicken eggs',40,'img/eggs.jpeg'),
-('P4','Vegetables',9.25,'Fresh produce made from our space garden',60,'img/freshproduce.jpeg'),
-('P5','Milk',5.75,'2% milk, 750ml',45,'img/milk.jpeg'),
-('P6','Hygiene Products',14.30,'Includes soap, feminine hygiene products and dental care',60,'img/hygiene products.jpeg'),
-('P7','Spices',18.00,'A bunch of exotic spices including chili powder, coriander powder, etc.',10,'img/spices.jpeg');
+('P1','Bread',4.50,'Flour based white bread, contains gluten and dairy',1,'img/bread.jpeg'),
+('P2','Chicken Breasts',14.75,'Boneless and Skinless Chicken Breasts, 4 breasts',1,'img/chicken.jpeg'),
+('P3','Brown Eggs',7.50,'A dozen chicken eggs',1,'img/eggs.jpeg'),
+('P4','Vegetables',9.25,'Fresh produce made from our space garden',1,'img/freshproduce.jpeg'),
+('P5','Milk',5.75,'2% milk, 750ml',1,'img/milk.jpeg'),
+('P6','Hygiene Products',14.30,'Includes soap, feminine hygiene products and dental care',1,'img/hygiene products.jpeg'),
+('P7','Spices',18.00,'A bunch of exotic spices including chili powder, coriander powder, etc.',1,'img/spices.jpeg');
 
 
 
 insert into Restaurant(prodId, prodName,prodPrice,prodDesc, cap, prodImageURL) values
-('R1','Chicken Biryani',14.50,'Savory chicken and rice dish that includes layers of chicken, rice, and aromatics.',10,'img/chickenbiryani.jpeg'),
-('R2','Bruschetta',8.00,'Slice of garlic bread toasted in the oven topped with olive oil, tomatoes and salt',25,'img/garlicbreadbruschetta.jpeg'),
-('R3','Grilled Chicken',12.50,'Juicy chicken breast seasoned and grilled over an open flame',30,'img/grilledchicken.jpeg'),
-('R4','Maggi',4.25,'Clasic Indian snack',50,'img/maggi.jpeg'),
-('R5','Omelette',6.75,'A dish made by mixing eggs together and frying them',45,'img/omelette.jpeg'),
-('R6','Marinara Pasta',14.00,'Pasta tossed in a tomato sauce usually made with tomatoes, garlic, herbs, and onions.',30,'img/pasta.jpeg');
+('R1','Chicken Biryani',14.50,'Savory chicken and rice dish that includes layers of chicken, rice, and aromatics.',1,'img/chickenbiryani.jpeg'),
+('R2','Bruschetta',8.00,'Slice of garlic bread toasted in the oven topped with olive oil, tomatoes and salt',1,'img/garlicbreadbruschetta.jpeg'),
+('R3','Grilled Chicken',12.50,'Juicy chicken breast seasoned and grilled over an open flame',1,'img/grilledchicken.jpeg'),
+('R4','Maggi',4.25,'Clasic Indian snack',1,'img/maggi.jpeg'),
+('R5','Omelette',6.75,'A dish made by mixing eggs together and frying them',1,'img/omelette.jpeg'),
+('R6','Marinara Pasta',14.00,'Pasta tossed in a tomato sauce usually made with tomatoes, garlic, herbs, and onions.',1,'img/pasta.jpeg');
 
 ALTER TABLE SpaceStation ADD survivalTime decimal(5,2);
 UPDATE SpaceStation

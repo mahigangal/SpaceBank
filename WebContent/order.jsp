@@ -16,8 +16,8 @@
 
 <% 
 // Get customer id
-String fname = request.getParameter("firstName");
-String pass = request.getParameter("pwd");
+String fname = request.getParameter("username");
+String pass = request.getParameter("password");
 @SuppressWarnings({"unchecked"})
 HashMap<String, ArrayList<Object>> productList = (HashMap<String, ArrayList<Object>>) session.getAttribute("productList");
 
@@ -25,7 +25,7 @@ HashMap<String, ArrayList<Object>> productList = (HashMap<String, ArrayList<Obje
 // Determine if there are products in the shopping cart
 // If either are not true, display an error message
 
-if (fname == null || !fname.matches("\\d+")) {
+if (fname == null ) {
     out.println("<p><strong><b>Invalid customer id. Go back to the previous page and try again</b></strong></p>");
 } 
 else {
@@ -59,10 +59,10 @@ try (PreparedStatement ps = con.prepareStatement(sql)) {
         } 
         else {
             // Save order information to the database
-            String sql2 = "INSERT INTO ordersummary (customerId, orderDate, totalAmount) VALUES (?, GETDATE(), ?)";
+            String sql2 = "INSERT INTO ordersummary (firstname, totalAmount) VALUES (?, ?)";
 
             try (PreparedStatement ps2 = con.prepareStatement(sql2, Statement.RETURN_GENERATED_KEYS)) {
-                ps2.setInt(1, Integer.parseInt(custId));
+                ps2.String(1,fname);
                 ps2.setDouble(2, 0.0); // Placeholder for totalAmount, will be updated later
 
                 int rows = ps2.executeUpdate();
@@ -76,7 +76,7 @@ try (PreparedStatement ps = con.prepareStatement(sql)) {
                     if (rst2.next()) {
                         int orderId = rst2.getInt(1);
 
-                        String sql3 = "INSERT INTO orderproduct (orderId, productId, quantity, price) VALUES (?, ?, ?, ?)";
+                        String sql3 = "INSERT INTO orderproduct (orderId, servId, quantity, price) VALUES (?, ?, ?, ?)";
 
                         try (PreparedStatement ps3 = con.prepareStatement(sql3)) {
                             Iterator<Map.Entry<String, ArrayList<Object>>> iterator = productList.entrySet().iterator();
@@ -84,13 +84,13 @@ try (PreparedStatement ps = con.prepareStatement(sql)) {
 
                             out.println("<h2>Your Order Summary</h2>");
                             out.println("<table border=\"1\">");
-                            out.println("<tr><th>Product ID</th><th>Product Name</th><th>Quantity</th><th>Price</th><th>Subtotal</th></tr>");
+                            out.println("<tr><th>Product ID</th><th>Service ID</th><th>Quantity</th><th>Price</th><th>Subtotal</th></tr>");
 
                             while (iterator.hasNext()) {
                                 Map.Entry<String, ArrayList<Object>> entry = iterator.next();
                                 ArrayList<Object> product = entry.getValue();
                                 String productId = (String) product.get(0);
-                                String productName = (String) product.get(1);
+                                String serviceId = (String) product.get(1);
                                 String price = (String) product.get(2);
                                 double pr = Double.parseDouble(price);
                                 int qty = ((Integer) product.get(3)).intValue();
