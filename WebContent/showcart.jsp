@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>KenzoCoffer's Grocery Store Order</title>
+    <title>SpaceCart</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
