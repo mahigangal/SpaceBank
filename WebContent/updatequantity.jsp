@@ -63,15 +63,12 @@
 
             // Check if the new quantity is valid (greater than or equal to 1)
             if (newQuantity >= 1) {
-                // Check if the requested quantity is available in the inventory
-                if (isQuantityAvailable(productId, newQuantity)) {
-                    // Update the quantity in the product list
+            
                     product.set(3, newQuantity);
                 } else {
-                    // If the requested quantity is not available, you can handle it accordingly.
-                    // For now, let's remove the item from the cart. You may want to display a message to the user.
                     
-                    responseWriter.println("<p>Sorry, the requested quantity is not available in the inventory.</p>");
+                    
+                    responseWriter.println("<p>Sorry, the requested quantity is not valid!.</p>");
                 }
             } else {
                 // If the new quantity is 0 or less, remove the item from the cart
@@ -82,7 +79,7 @@
             // Update the session attribute with the modified product list
             session.setAttribute("productList", productList);
         }
-    } finally {
+    finally {
         // Close the database connection
         closeConnection();
     }
