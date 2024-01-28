@@ -73,6 +73,7 @@
             max-width: 25%; 
             display: inline-block;
             margin: auto; 
+            opacity: 1;
         }
     </style>
 </head>
@@ -107,7 +108,7 @@
                         try {
                             getConnection(); %> 
                             <div class="profile-image-container">
-                                <img src="img/Profile.jpeg" alt="Profile Image" class="profile-image">
+                                <img src="img/astronaut.png" alt="Profile Image" class="profile-image">
                             </div>
 
                             <%
