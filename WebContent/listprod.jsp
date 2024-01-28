@@ -5,7 +5,7 @@
 <html lang="en">
 
 <head>
-    <title>SpaceBank</title>
+    <title>Spacebank</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
@@ -150,7 +150,7 @@
     </div>
 
     <div class="header-ribbon">
-        <div class="header-title">Welcome to SpaceBanks</div>
+        <div class="header-title">Welcome to Spacebanks</div>
         <div class="user-info">
             Welcome,
             <% 
@@ -164,7 +164,15 @@
 
     <form method="get" action="listprod.jsp">
         <input type="text" name="productName" placeholder="Product Name">
-        
+        <select name="category">
+            <option value="">All</option>
+            <option value="Beverages">Beverages</option>
+            <option value="Condiments">Condiments</option>
+            <option value="Dairy Products">Dairy Products</option>
+            <option value="Produce">Produce</option>
+            <option value="Confections">Confections</option>
+            <option value="Grains/Cereals">Grains/Cereals</option>
+        </select>
         <input type="submit" value="Submit">
         <input type="reset" value="Reset"> (Leave blank for all products)
     </form>
@@ -187,7 +195,7 @@
 
         <%-- Service 2 --%>
         <div class="product-card">
-            <img src="img/laundry.jpeg" class="product-image" alt="Laundry">
+            <img src="img/laundry.jpeg %>" class="product-image" alt="Laundry">
             <div class="product-details">
                 <div class="product-price">$8.00</div>
                 <div class="add-to-cart-link"><a href="#">Add to Cart</a></div>
@@ -215,8 +223,7 @@
         <div class="product-card">
             <img src="img/restaurant.jpeg" class="product-image" alt="Resto">
             <div class="product-details">
-                <div class="product-price">$15.00</div>
-                <div class="add-to-cart-link"><a href="#">Add to Cart</a></div>
+                <div class="add-to-cart-link"><a href="#">View</a></div>
             </div>
         </div>
       
