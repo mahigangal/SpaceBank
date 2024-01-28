@@ -172,12 +172,7 @@
         </div>
     </div>
 
-    <form method="get" action="listprod.jsp">
-        <input type="text" name="productName" placeholder="Product Name">
-        
-        <input type="submit" value="Submit">
-        <input type="reset" value="Reset">
-    </form>
+   
     <!-- <%
     // Get the context path
     String contextPath = request.getContextPath();
