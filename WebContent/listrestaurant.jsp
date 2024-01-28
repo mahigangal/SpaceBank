@@ -192,7 +192,7 @@
                 <div class="product-price">$<%= prodPrice %></div>
                 <div class="product-name"><%= prodName %></div>
                 <div class="product-description"><%= prodDesc %></div>
-                <div class="product-capacity">"Personal Quota": <%= cap %></div>
+                <div class="product-capacity">Personal Quota: <%= cap %></div>
                 <div class="add-to-cart-link"><a href="#">Add to Cart</a></div>
             </div>
         </div>
