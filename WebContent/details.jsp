@@ -33,7 +33,7 @@
             font-family: 'Bangers', cursive;
             text-align: center;
             color: #FFFFFF;
-            font-size: 3em;
+            font-size: 5em;
             margin-bottom: 10px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
             white-space: nowrap;
@@ -62,16 +62,53 @@
             line-height: 1.5;
             margin-top: 20px;
         }
+
+        .image-container {
+            text-align: center;
+            margin-top: 20px;
+            position: relative;
+        }
+
+        .spacecraft-image {
+            max-width: 50%;
+            height: auto;
+        }
+
+        .button-left {
+            position: absolute;
+            bottom: 40px;
+            left: 520px;
+            background-color: #000;
+            color: #fff;
+            padding: 20px;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+        }
+
+        .button-right {
+            position: absolute;
+            bottom: 40px;
+            right: 520px;
+            background-color: #000;
+            color: #fff;
+            padding: 20px;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+        }
+        .button-left:hover,
+    .button-right:hover {
+        background-color: #fff;
+        color: #080407;
+        time
+    }
     </style>
 </head>
 <body>
     <%
         String spacecraftId = request.getParameter("spacecraftId");
         String spacecraftName = request.getParameter("spacecraftName");
-
-        // Use spacecraftId to fetch details from the database
-        // Assuming you have a database connection and result set (rs) ready
- 
 
         try {
             getConnection();
@@ -81,7 +118,6 @@
             ResultSet rs = stmt.executeQuery(); 
 
             if (rs.next()) {
-                // Extract details from the result set
                 int population = rs.getInt("pop");
                 int food = rs.getInt("food");
                 int oxygen = rs.getInt("oxygen");
@@ -99,6 +135,11 @@
     %>
                 <h1>Details for <%= spacecraftName %></h1>
                 <p><%= details %></p>
+                <div class="image-container">
+                    <img src="<%= request.getContextPath() %>/img/spacecraft1.png" alt="Spacecraft Image" class="spacecraft-image">
+                    <button class="button-left">Services</button>
+                    <button class="button-right">Login</button>
+                </div>
     <%
             }
             rs.close();
@@ -110,7 +151,6 @@
     %>
     <script src="scripts.js"></script>
     <script>
-        // Add event listener to hide cursor after animation
         document.querySelector('.container h1').addEventListener('animationend', function () {
             
         });
