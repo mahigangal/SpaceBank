@@ -7,7 +7,7 @@
     body {
         margin: 0;
         padding: 0;
-        font-family: 'Arial, sans-serif';
+        font-family: 'Cambria, sans-serif';
         height: 100vh;
         overflow: hidden;
         background-image: url('<%= request.getContextPath() %>/img/Space.jpg');
@@ -23,6 +23,8 @@
         background-color: rgba(0, 0, 0, 0.5);
         padding: 20px;
         border-radius: 10px;
+        max-width: 400px; /* Set a maximum width for the container */
+        width: 100%; /* Ensure container takes full width within max-width */
     }
 
     h3 {
@@ -60,7 +62,7 @@
         cursor: pointer;
         padding: 10px;
         margin-top: 20px;
-        width: 50%;
+        width: 100%; /* Make the button take full width */
         box-sizing: border-box;
         border: none;
         border-radius: 5px;
@@ -68,6 +70,16 @@
 
     .submit:hover {
         background-color: gray;
+    }
+
+    .image-container {
+        margin-top: 20px;
+    }
+
+    .spacecraft-image {
+        max-width: 100%; /* Adjust this value to control the image size */
+        height: auto;
+        border-radius: 10px;
     }
 </style>
 
@@ -94,6 +106,10 @@
             </table>
             <input class="submit" type="submit" name="Submit2" value="Log In">
         </form>
+
+        <div class="image-container">
+            <img src="<%= request.getContextPath() %>/img/spacecraft1.png" alt="Spacecraft Image" class="spacecraft-image">
+        </div>
     </div>
 </body>
 </html>
