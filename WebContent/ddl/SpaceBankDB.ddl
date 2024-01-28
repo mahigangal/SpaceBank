@@ -114,6 +114,9 @@ ALTER TABLE services ADD COLUMN quota int;
 UPDATE services SET quota=5 WHERE servId='S1';
 UPDATE services SET quota=1 WHERE servId='S2';
 UPDATE services SET quota=2 WHERE servId='S3';
+UPDATE services SET quota=0 WHERE servId='S4';
+UPDATE services SET quota=0 WHERE servId='S5';
+
 
 insert into Market(prodId, prodName,prodPrice,prodDesc, cap, prodImageURL) values
 ('P1','Bread',4.50,'Flour based white bread, contains gluten and dairy',30,'img/bread.jpeg'),
