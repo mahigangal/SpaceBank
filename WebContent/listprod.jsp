@@ -41,6 +41,17 @@
             display: flex;
             justify-content: space-between;
         }
+        .background-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('<%= request.getContextPath() %>/img/Space.jpg');
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+        }
 
         .header-title {
             position: absolute;
@@ -144,13 +155,13 @@
 
 <body>
     <div class="navbar">
-        <a href="index.jsp">New Main Page</a>
+        <a href="index.jsp">Main Page</a>
         <a href="customer.jsp">Customer Info</a>
         <a href="logout.jsp">Log out</a>
     </div>
 
     <div class="header-ribbon">
-        <div class="header-title">Welcome to SpaceBanks</div>
+        <div class="header-title">Welcome to SpaceBank</div>
         <div class="user-info">
             Welcome,
             <% 
@@ -166,7 +177,7 @@
         <input type="text" name="productName" placeholder="Product Name">
         
         <input type="submit" value="Submit">
-        <input type="reset" value="Reset"> (Leave blank for all products)
+        <input type="reset" value="Reset">
     </form>
     <!-- <%
     // Get the context path
