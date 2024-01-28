@@ -5,18 +5,21 @@
 <html lang="en">
 
 <head>
-    <title>Customer Page</title>
+    <title>SpaceFile</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f8f9fa;
+            background-color: #000000;
+            background-image: url('img/Space.jpg');
+            background-size: cover;
+            background-position: center;
         }
 
         .ribbon {
-            background-color: #28a745;
+            background-color: #000000;
             padding: 10px 0;
             text-align: center;
             color: white;
@@ -30,7 +33,7 @@
         }
 
         .navbar {
-            background-color: #4CAF50;
+            background-color: #000000;
             overflow: hidden;
         }
 
@@ -60,6 +63,16 @@
 
         .alert {
             margin-top: 20px;
+    
+        }
+        .profile-image-container {
+            text-align: center;
+        }
+
+        .profile-image {
+            max-width: 25%; 
+            display: inline-block;
+            margin: auto; 
         }
     </style>
 </head>
@@ -67,11 +80,11 @@
 <body>
 
     <div class="ribbon">
-        <h2>Welcome to KenzoCoffer's Grocery</h2>
+        <h2>SpaceFile</h2>
     </div>
 
     <div class="navbar">
-        <a href="listprod.jsp">Begin Shopping</a>
+        <a href="listprod.jsp">Services </a>
         <a href="index.jsp">Main Page</a>
         <a href="logout.jsp">Logout</a>
     </div>
@@ -79,7 +92,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h2 class="text-center mb-4">Customer Profile</h2>
+                
 
                 <%
                     String userName = (String) session.getAttribute("authenticatedUser");
@@ -92,97 +105,23 @@
                 <%
                     } else {
                         try {
-                            getConnection();
+                            getConnection(); %> 
+                            <div class="profile-image-container">
+                                <img src="img/Profile.jpeg" alt="Profile Image" class="profile-image">
+                            </div>
 
-                            String customerSql = "SELECT * FROM customer WHERE userId = ?";
+                            <%
+                            String customerSql = "SELECT * FROM Users WHERE name = ?";
                             PreparedStatement customerPstmt = con.prepareStatement(customerSql);
                             customerPstmt.setString(1, userName);
                             ResultSet rs = customerPstmt.executeQuery();
 
-                            if (rs.next()) {
-                %>
 
-                                <table class="table table-bordered">
-                                    <tr>
-                                        <th>Id</th>
-                                        <td><%= rs.getInt(1) %></td>
-                                    </tr>
-                                    <tr>
-                                        <th>First Name</th>
-                                        <td><%= rs.getString(2) %></td>
-                                    </tr>
-                                    <tr>
-                                        <th>Last Name</th>
-                                        <td><%= rs.getString(3) %></td>
-                                    </tr>
-                                    <tr>
-                                        <th>Email</th>
-                                        <td><%= rs.getString(4) %></td>
-                                    </tr>
-                                    <tr>
-                                        <th>Phone</th>
-                                        <td><%= rs.getString(5) %></td>
-                                    </tr>
-                                    <tr>
-                                        <th>Address</th>
-                                        <td><%= rs.getString(6) %></td>
-                                    </tr>
-                                    <tr>
-                                        <th>City</th>
-                                        <td><%= rs.getString(7)%></td>
-                                    </tr>
-                                    <tr>
-                                        <th>State</th>
-                                        <td><%= rs.getString(8) %></td>
-                                    </tr>
-                                    <tr>
-                                        <th>Postal Code</th>
-                                        <td><%= rs.getString(9) %></td>
-                                    </tr>
-                                    <tr>
-                                        <th>Country</th>
-                                        <td><%= rs.getString(10)%></td>
-                                    </tr>
-                                    <tr>
-                                        <th>User Id</th>
-                                        <td><%= rs.getString(11) %></td>
-                                    </tr>
-                                </table>
+                            
+            
 
-                                <h2 class="text-center mb-4">Customer Orders</h2>
-                                <table class="table table-bordered">
-                                    <tr>
-                                        <th>Order Id</th>
-                                        <th>Order Date</th>
-                                        <th>Total Amount</th>
-                                    </tr>
-                                    <%
-                                        // Retrieve customer orders
-                                        String orderSql = "SELECT * FROM orderSummary WHERE customerId = ?";
-                                        PreparedStatement orderPstmt = con.prepareStatement(orderSql);
-                                        orderPstmt.setInt(1, rs.getInt(1));
-                                        ResultSet orderRs = orderPstmt.executeQuery();
-
-                                        while (orderRs.next()) {
-                                    %>
-                                            <tr>
-                                                <td><%= orderRs.getInt("orderId") %></td>
-                                                <td><%= orderRs.getDate("orderDate") %></td>
-                                                <td><%= orderRs.getDouble("totalAmount") %></td>
-                                            </tr>
-                                    <%
-                                        }
-                                    %>
-                                </table>
-
-                <%
-                            } else {
-                %>
-                                <div class="alert alert-warning" role="alert">
-                                    No customer information found for <%= userName %>
-                                </div>
-                <%
-                            }
+                               
+                                    
                             closeConnection();
                         } catch (SQLException ex) {
                             out.println(ex);
