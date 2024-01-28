@@ -70,7 +70,8 @@
         }
 
         .profile-image {
-            max-width: 25%; 
+            max-width: 100%; 
+            max-height: 100%;
             display: inline-block;
             margin: auto; 
             opacity: 1;
@@ -93,8 +94,6 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                
-
                 <%
                     String userName = (String) session.getAttribute("authenticatedUser");
 
@@ -108,7 +107,7 @@
                         try {
                             getConnection(); %> 
                             <div class="profile-image-container">
-                                <img src="img/astronaut.png" alt="Profile Image" class="profile-image">
+                                <img src="img/atro.png" alt="Profile Image" class="profile-image">
                             </div>
 
                             <%
@@ -116,24 +115,15 @@
                             PreparedStatement customerPstmt = con.prepareStatement(customerSql);
                             customerPstmt.setString(1, userName);
                             ResultSet rs = customerPstmt.executeQuery();
-
-
-                            
-            
-
-                               
-                                    
                             closeConnection();
                         } catch (SQLException ex) {
                             out.println(ex);
                         }
                     }
                 %>
-
             </div>
         </div>
     </div>
-
 </body>
 
 </html>
