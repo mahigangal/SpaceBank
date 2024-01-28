@@ -188,7 +188,12 @@
                 <div class="product-name"><%= prodName %></div>
                 <div class="product-description"><%= prodDesc %></div>
                 <div class="product-capacity">Personal Quota: <%= cap %></div>
-                <div class="add-to-cart-link"><a href="#">Add to Cart</a></div>
+               <% if (cap > 0) { %>
+    <div class="add-to-cart-link"><a href="addcart.jsp?id=<%= prodId %>&name=<%= URLEncoder.encode(prodName, "UTF-8") %>&price=<%= prodPrice %>">Add to Cart</a></div><% } 
+    else { %>
+    <p class="add-to-cart-link"><a href="#">Add to Cart</a></p>
+    <% } %>
+
             </div>
         </div>
         <!-- End of Restaurant Item -->

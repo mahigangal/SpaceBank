@@ -225,22 +225,17 @@
         </div>
         <%-- Service 6 --%>
         <div class="product-card">
-            <img src="img/hygieneproducts.png" class="product-image" alt="Hygiene Products">
-            <div class="product-details">
-                <div class="product-price">$14.30</div>
-                <div class="prouct-name">Hygiene Products</div>
-                <div class="add-to-cart-link"><a href="#">Add to Cart</a></div>
-            </div>
-        </div>
+    <img src="img/spices.jpeg" class="product-image" alt="Spices">
+    <div class="product-details">
+        <div class="product-price">$18.00</div>
+        <div class="prouct-name">Spices</div>
+       <div class="add-to-cart-link"><a href="addcart.jsp?name=<%= URLEncoder.encode(servName, "UTF-8") %>&price=<%= cost %>">Add to Cart</a></div>
+
+    </div>
+</div>
+
         <%-- Service 7 --%>
-        <div class="product-card">
-            <img src="img/spices.jpeg" class="product-image" alt="Spices">
-            <div class="product-details">
-                <div class="product-price">$18.00</div>
-                <div class="prouct-name">Spices</div>
-                <div class="add-to-cart-link"><a href="#">Add to Cart</a></div>
-            </div>
-        </div>
+        
       
     </div> 
     <div class="background-container"></div>
