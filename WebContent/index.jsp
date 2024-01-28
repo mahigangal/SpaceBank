@@ -1,8 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
+<%@ page import="java.sql.*" %>
+<%@ page contentType='text/html;charset=UTF-8' language="java" %>
 
+<%@ include file="jdbc.jsp" %>
+
+<html>
 <head>
-    <title>Spacebank</title>
+    <title>Spacecraft Details</title>
     <style>
         body {
             margin: 0;
@@ -57,13 +60,11 @@
             white-space: nowrap;
             z-index: 1;
         }
-        
-
 
         h1 {
             font-family: 'Bangers', cursive;
             text-align: center;
-            color: #fff;
+            color: #FFFFFF;
             font-size: 3em;
             margin-bottom: 10px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
@@ -72,10 +73,6 @@
             border-right: 2px solid #fff;
             animation: typing 4s steps(30, end);
             display: inline-block;
-        }
-
-        .cursor-hidden {
-            cursor: none; /* Hide the cursor */
         }
 
         @keyframes typing {
@@ -100,37 +97,37 @@
 <body>
     <!-- Seven spacecraft images -->
     <!-- Adjust top and left values for each spacecraft to position them uniquely -->
-    <div class="spacecraft" id="spacecraft1" style="top: 30%; left: 5%;" onclick="navigateToSpacecraftPage('S1')" onmouseout="hideSpacecraftName()">
+    <div class="spacecraft" id="spacecraft1" style="top: 30%; left: 5%;" onclick="navigateToSpacecraftPage('S1','AsiaCosmo Nexus')" onmouseout="hideSpacecraftName()">
         <img src="<%= request.getContextPath() %>/img/spacecraft1.png" alt="Spacecraft 1"  width="500" height="300">
         <div class="spacecraft-name">AsiaCosmo Nexus</div>
     </div>
      
-    <div class="spacecraft" id="spacecraft1" style="top: 5%; left: 15%;" onclick="navigateToSpacecraftPage('S2')" onmouseout="hideSpacecraftName()">
+    <div class="spacecraft" id="spacecraft1" style="top: 5%; left: 15%;" onclick="navigateToSpacecraftPage('S2','Africor Stellar Outpost')" onmouseout="hideSpacecraftName()">
         <img src="<%= request.getContextPath() %>/img/spacecraft1.png" alt="Spacecraft 1"  width="500" height="300">
         <div class="spacecraft-name">Africor Stellar Outpost</div>
     </div>
    
-    <div class="spacecraft" id="spacecraft1" style="top: 8%; left: 42%;" onclick="navigateToSpacecraftPage('S3')" onmouseout="hideSpacecraftName()">
+    <div class="spacecraft" id="spacecraft1" style="top: 8%; left: 42%;" onclick="navigateToSpacecraftPage('S3','NorthAm Nexus Station')" onmouseout="hideSpacecraftName()">
         <img src="<%= request.getContextPath() %>/img/spacecraft1.png" alt="Spacecraft 1"  width="500" height="300">
         <div class="spacecraft-name">NorthAm Nexus Station</div>
     </div>
     
-    <div class="spacecraft" id="spacecraft1" style="top: 20%; left: 70%;" onclick="navigateToSpacecraftPage('S4')" onmouseout="hideSpacecraftName()">
+    <div class="spacecraft" id="spacecraft1" style="top: 20%; left: 70%;" onclick="navigateToSpacecraftPage('S4','EuroCelestial Haven')" onmouseout="hideSpacecraftName()">
         <img src="<%= request.getContextPath() %>/img/spacecraft1.png" alt="Spacecraft 1"  width="500" height="300">
         <div class="spacecraft-name">EuroCelestial Haven</div>
     </div>
     
-    <div class="spacecraft" id="spacecraft1" style="top: 59%; left: 65%;" onclick="navigateToSpacecraftPage('S5')" onmouseout="hideSpacecraftName()">
+    <div class="spacecraft" id="spacecraft1" style="top: 59%; left: 65%;" onclick="navigateToSpacecraftPage('S5','AustroOrbit Oasis')" onmouseout="hideSpacecraftName()">
         <img src="<%= request.getContextPath() %>/img/spacecraft1.png" alt="Spacecraft 1"  width="500" height="300">
         <div class="spacecraft-name">AustroOrbit Oasis</div>
     </div>
     
-    <div class="spacecraft" id="spacecraft1" style="top: 65%; left: 35%;" onclick="navigateToSpacecraftPage('S6')" onmouseout="hideSpacecraftName()">
+    <div class="spacecraft" id="spacecraft1" style="top: 65%; left: 35%;" onclick="navigateToSpacecraftPage('S6','Club Penguin Station')" onmouseout="hideSpacecraftName()">
         <img src="<%= request.getContextPath() %>/img/spacecraft1.png" alt="Spacecraft 1"  width="500" height="300">
         <div class="spacecraft-name">Club Penguin Station</div>
     </div>
 
-    <div class="spacecraft" id="spacecraft1" style="top: 60%; left: 5%;" onclick="navigateToSpacecraftPage('S7')" onmouseout="hideSpacecraftName()">
+    <div class="spacecraft" id="spacecraft1" style="top: 60%; left: 5%;" onclick="navigateToSpacecraftPage('S7','SouthAmeriSky Sanctuary')" onmouseout="hideSpacecraftName()">
         <img src="<%= request.getContextPath() %>/img/spacecraft1.png" alt="Spacecraft 1"  width="500" height="300">
         <div class="spacecraft-name">SouthAmeriSky Sanctuary</div>
     </div>
@@ -148,10 +145,11 @@
         document.querySelector('.container h1').addEventListener('animationend', function () {
             
         });
-        function navigateToSpacecraftPage(spacecraftId) { 
+        function navigateToSpacecraftPage(spacecraftId, spacecraftName) { 
             // You can implement the navigation logic here
             // Redirect to the page for the selected spacecraft, e.g., window.location.href = 'details.jsp?spacecraft=' + spacecraftId;
-            window.location.href = 'details.jsp?spacecraft=' + spacecraftId;
+             window.location.href = 'details.jsp?spacecraftId=' + spacecraftId + '&spacecraftName=' + spacecraftName;
+    
         }
     </script>
 </body>
