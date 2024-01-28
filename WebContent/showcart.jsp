@@ -11,13 +11,15 @@
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #f5f5f5;
             margin: 0;
             padding: 0;
+            background-color: #000000;
+            background-image: url('img/Space.jpg');
+            background-size: cover;
+            background-position: center;
         }
-
         .header {
-            background-color: #4CAF50;
+            background-color: #000000;
             color: white;
             text-align: center;
             padding: 20px;
@@ -54,9 +56,23 @@
 
         .action-buttons {
             text-align: center;
-            margin-top: 20px;
+            margin-top: 150px;
         }
-
+        
+        .action-buttons a {
+            background-color: #000000;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 15px;
+            display: inline-block;
+            transition: background-color 0.3s ease; 
+        }
+        
+        .action-buttons a:hover {
+            background-color: #ffffff;
+            color: #000000; 
+        }
         .continue-shopping {
             display: inline-block;
             background-color: #4CAF50;
@@ -74,12 +90,15 @@
             text-decoration: none;
             border-radius: 5px;
         }
+        .carttext{
+            color: azure;
+        }
     </style>
 </head>
 <body>
 
 <div class="header">
-    <h1>Your Shopping Cart</h1>
+    <h1>Your SpaceCart</h1>
 </div>
 
 <%
@@ -88,7 +107,13 @@
     HashMap<String, ArrayList<Object>> productList = (HashMap<String, ArrayList<Object>>) session.getAttribute("productList");
 
     if (productList == null) {
-        out.println("<p>Your shopping cart is empty!</p>");
+        out.println("<div class='carttext'><p>Your space cart is empty!</p></div>");
+        %>
+
+        <div class='action-buttons'>
+            <a class='continue-shopping' href='listprod.jsp'>Back</a>
+        </div>
+    <%
     } else {
         NumberFormat currFormat = NumberFormat.getCurrencyInstance();
 
