@@ -115,6 +115,17 @@
             width: 300px;
         }
 
+        .background-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('<%= request.getContextPath() %>/img/Space.jpg');
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+        }
         .product-image {
             width: 100%;
             height: 60%;
@@ -168,3 +179,4 @@
         <input type="submit" value="Submit">
         <input type="reset" value="Reset"> (Leave blank for all products)
     </form>
+

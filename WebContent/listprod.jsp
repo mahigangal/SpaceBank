@@ -12,7 +12,21 @@
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: black;
+            overflow: hidden; /* Prevent scrollbars caused by the absolute positioning of background-container */
+        }
+
+        .background-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-image: url('<%= request.getContextPath() %>/img/Space.jpg'); /* Replace with your background image path */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            filter: brightness(0.5); /* Optional: Adjust the brightness of the background */
         }
 
         .navbar {
@@ -21,128 +35,16 @@
             display: flex;
             justify-content: flex-end;
             padding: 10px;
+            z-index: 1; /* Ensure the navbar is above the background */
         }
 
-        .navbar a {
-            color: beige;
-            text-decoration: none;
-            margin: 0 15px;
-            font-size: 18px;
-        }
+        /* ... (rest of your styles) ... */
 
-        .header-ribbon {
-            position: relative;
-            background-color: black;
-            color: beige;
-            text-align: center;
-            padding: 40px;
-            font-size: 35px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .header-title {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-
-        .user-info {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            color: beige;
-            font-size: 15px;
-        }
-
-        .links {
-            background-color: black;
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            padding: 10px;
-        }
-
-        .links a {
-            color: beige;
-            text-decoration: none;
-            margin: 0 15px;
-            font-size: 18px;
-        }
-
-        form {
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        input[type="text"],
-        select,
-        input[type="submit"],
-        input[type="reset"] {
-            padding: 10px;
-            margin: 5px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-sizing: border-box;
-        }
-
-        input[type="submit"],
-        input[type="reset"] {
-            background-color: black;
-            color: beige;
-            cursor: pointer;
-        }
-
-        .product-card-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-            margin: 20px;
-        }
-
-        .product-card {
-            border: 1px solid bisque;
-            border-radius: 8px;
-            overflow: hidden;
-            margin: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            background-color: bisque;
-            display: flex;
-            flex-direction: column;
-            height: 400px;
-            width: 300px;
-        }
-
-        .product-image {
-            width: 100%;
-            height: 60%;
-            object-fit: contain;
-        }
-
-        .product-details {
-            padding: 15px;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .product-price {
-            font-weight: bold;
-            color: black;
-        }
-
-        .add-to-cart-link {
-            align-self: flex-end;
-            margin-top: auto;
-            padding: 10px;
-        }
     </style>
 </head>
 
 <body>
+    <div class="background-container"></div> <!-- Background container div -->
     <div class="navbar">
         <a href="index.jsp">Main Page</a>
         <a href="customer.jsp">Customer Info</a>
@@ -182,18 +84,8 @@
     String contextPath = request.getContextPath();
 %>
 
-<p>Context Path: <%= contextPath %></p> -->
-<div class="product-card-container">
-        <%-- Service 1 --%>
-        <div class="product-card">
-            <img src="img/gym.jpeg" class="product-image" alt="Gym">
-                  
-            <div class="product-details">
-                <div class="product-price">$7.50</div>
-                <div class="prouct-name">Fitness Center</div>
-                <div class="add-to-cart-link"><a href="#">Add to Cart</a></div>
-            </div>
-        </div>
+    <!-- ... (rest of your HTML) ... -->
+
 
         <%-- Service 2 --%>
         <div class="product-card">
@@ -235,5 +127,7 @@
         </div>
       
     </div>
+
 </body>
+
 </html>
