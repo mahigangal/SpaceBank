@@ -126,7 +126,6 @@
             background-position: center;
             z-index: -1;
         }
-
         .product-image {
             width: 100%;
             height: 60%;
@@ -174,4 +173,10 @@
         </div>
     </div>
 
-    
+    <form method="get" action="listmarket.jsp">
+        <input type="text" name="productName" placeholder="Product Name">
+        
+        <input type="submit" value="Submit">
+        <input type="reset" value="Reset"> (Leave blank for all products)
+    </form>
+
