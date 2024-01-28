@@ -132,11 +132,11 @@
 
                 String details = "Spacecraft Name: " + spacecraftName + "<br>"
                         + "Population: " + population + "<br>"
-                        + "Food: " + food + "<br>"
-                        + "Oxygen: " + oxygen + "<br>"
-                        + "Energy: " + energy + "<br>"
-                        + "Water: " + water + "<br>"
-                        + "Survival Time: " + survivalTime + " years";
+                        + "Food: " + food + "   Kilo Tonnes" + "<br>"
+                        + "Oxygen: " + oxygen + "   Mega gm/dl" + "<br>"
+                        + "Energy: " + energy + "  Thousand Kilo Watts" + "<br>"
+                        + "Water: " + water + "   Million Gallons " +  "<br>"
+                        + "Survival Time: " + survivalTime + "   years";
     %>
                 <h1>Details for <%= spacecraftName %></h1>
                 <p><%= details %></p>
