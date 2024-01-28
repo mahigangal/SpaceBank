@@ -62,13 +62,13 @@
             ArrayList<Object> product = productList.get(productId);
 
             // Check if the new quantity is valid (greater than or equal to 1)
-            if (newQuantity >= 1) {
-            
-                    product.set(3, newQuantity);
+            if (newQuantity > 1) {
+                responseWriter.println("<p>Sorry, the requested quantity is not valid!.</p>");
+
                 } else {
                     
                     
-                    responseWriter.println("<p>Sorry, the requested quantity is not valid!.</p>");
+                    
                 }
             } else {
                 // If the new quantity is 0 or less, remove the item from the cart
