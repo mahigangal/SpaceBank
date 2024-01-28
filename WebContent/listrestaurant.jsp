@@ -168,3 +168,44 @@
         <input type="submit" value="Submit">
         <input type="reset" value="Reset"> (Leave blank for all products)
     </form>
+     <div class="product-card-container">
+        <%
+   
+            try {
+                getConnection();
+                String query = "SELECT * FROM Restaurant";
+                PreparedStatement pstmt = con.prepareStatement(query);
+                ResultSet rs = pstmt.executeQuery();
+
+                while (rs.next()) {
+                    String prodId = rs.getString("prodId");
+                    String prodName = rs.getString("prodName");
+                    double prodPrice = rs.getDouble("prodPrice");
+                    String prodDesc = rs.getString("prodDesc");
+                    int cap = rs.getInt("cap");
+                    String prodImageURL = rs.getString("prodImageURL");
+        %>
+        <!-- Restaurant Item -->
+        <div class="product-card">
+            <img src="<%= prodImageURL %>" class="product-image" alt="<%= prodName %>">
+            <div class="product-details">
+                <div class="product-price">$<%= prodPrice %></div>
+                <div class="product-name"><%= prodName %></div>
+                <div class="product-description"><%= prodDesc %></div>
+                <div class="product-capacity">"Personal Quota": <%= cap %></div>
+                <div class="add-to-cart-link"><a href="#">Add to Cart</a></div>
+            </div>
+        </div>
+        <!-- End of Restaurant Item -->
+        <%
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } finally {
+                // Close resources
+                closeConnection();
+            }
+        %>
+    </div>
+</body>
+</html>
