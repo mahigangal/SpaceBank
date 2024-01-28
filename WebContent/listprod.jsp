@@ -41,22 +41,17 @@
             display: flex;
             justify-content: space-between;
         }
-            .background-container {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background-image: url('<%= request.getContextPath() %>/img/Space.jpg');
-                background-size: cover;
-                background-position: center;
-                z-index: -1;
-            }
+
         .header-title {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: 2px solid #fff;
+            animation: typing 4s steps(30, end);
+            display: inline-block;
         }
 
         .user-info {
@@ -80,6 +75,18 @@
             text-decoration: none;
             margin: 0 15px;
             font-size: 18px;
+        }
+
+        .background-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('<%= request.getContextPath() %>/img/Space.jpg');
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
         }
 
         form {
@@ -123,6 +130,7 @@
             flex-direction: column;
             height: 400px;
             width: 300px;
+            animation: attention 2s infinite; /* Added animation to the product card */
         }
 
         .product-image {
@@ -144,10 +152,24 @@
             color: black;
         }
 
+        .quota {
+            color: #333;
+        }
+
         .add-to-cart-link {
             align-self: flex-end;
             margin-top: auto;
             padding: 10px;
+        }
+
+        /* Animation for typing */
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
         }
     </style>
 </head>
@@ -172,64 +194,56 @@
         </div>
     </div>
 
-   
-    <!-- <%
-    // Get the context path
-    String contextPath = request.getContextPath();
-%>
+    <div class="product-card-container">
+        <%
+            try {
+                getConnection();
+                String query = "SELECT * FROM services";
+                PreparedStatement pstmt = con.prepareStatement(query);
+                ResultSet rs = pstmt.executeQuery();
 
-<p>Context Path: <%= contextPath %></p> -->
-<div class="product-card-container">
-        <%-- Service 1 --%>
-        <div class="product-card">
-            <img src="img/gym.jpeg" class="product-image" alt="Gym">
-                  
+                while (rs.next()) {
+                    String servId = rs.getString("servId");
+                    String servName = rs.getString("servName");
+                    double cost = rs.getDouble("cost");
+                    String imageURL = rs.getString("servImageURL");
+                    int quota = rs.getInt("quota");
+
+                    // Add a class for styling based on quota
+                    String attentionClass = (quota == 0) ? "attention" : "";
+        %>
+
+        <div class="product-card <%= attentionClass %>">
+            <img src="<%= request.getContextPath() + "/" + imageURL %>" class="product-image" alt="<%= servName %>">
             <div class="product-details">
-                <div class="product-price">$7.50</div>
-                <div class="prouct-name">Fitness Center</div>
-                <div class="add-to-cart-link"><a href="#">Add to Cart</a></div>
+                <div class="product-price">$<%= String.format("%.2f", cost) %></div>
+                <div class="prouct-name"><%= servName %></div>
+                <% if (quota > 0) { %>
+                    <div class="quota">Quota: <%= quota %></div>
+                <% } else { %>
+                    <div class="quota">Quota: Hidden</div>
+                    <% if ("Restaurant".equals(servName)) { %>
+                        <div class="add-to-cart-link"><a href="listrestaurant.jsp">View</a></div>
+                    <% } else if ("Market".equals(servName)) { %>
+                        <div class="add-to-cart-link"><a href="listmarket.jsp">View</a></div>
+                    <% } else { %>
+                        <div class="add-to-cart-link"><a href="#">Add to Cart</a></div>
+                    <% } %>
+                <% } %>
             </div>
         </div>
 
-        <%-- Service 2 --%>
-        <div class="product-card">
-            <img src="img/laundry.jpeg" class="product-image" alt="Laundry">
-            <div class="product-details">
-                <div class="product-price">$8.00</div>
-                <div class="prouct-name">Laundromat</div>
-                <div class="add-to-cart-link"><a href="#">Add to Cart</a></div>
-            </div>
-        </div>
-
-        <%-- Service 3 --%>
-        <div class="product-card">
-            <img src="img/market.jpeg" class="product-image" alt="Market">
-            <div class="product-details">
-                <div class="prouct-name">Market</div>
-                <div class="add-to-cart-link"><a href="listmarket.jsp">View</a></div>
-            </div>
-        </div>
-
-        <%-- Service 4 --%>
-        <div class="product-card">
-            <img src="img/pool.jpeg" class="product-image" alt="Pool">
-            <div class="product-details">
-                <div class="product-price">$5.50</div>
-                <div class="prouct-name">Swimming Pool</div>
-                <div class="add-to-cart-link"><a href="#">Add to Cart</a></div>
-            </div>
-        </div>
-        <%-- Service 5 --%>
-        <div class="product-card">
-            <img src="img/restaurant.jpeg" class="product-image" alt="Resto">
-            <div class="product-details">
-                
-                <div class="prouct-name">Restaurant</div>
-                <div class="add-to-cart-link"><a href="listrestaurant.jsp">View</a></div>
-            </div>
-        </div>
-      
+        <%
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } finally {
+                // Close resources
+                closeConnection();
+            }
+        %>
     </div>
     <div class="background-container"></div>
 </body>
+
 </html>

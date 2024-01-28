@@ -74,7 +74,7 @@ prodImageURL varchar(150)
 );
 insert into services(servId, servName,cost,servImageURL) values
 ('S1','Fitness Center',7.50,'img/gym.jpeg'),
-('S2','Laundromat',8.00,'img/gym.jpeg'),
+('S2','Laundromat',8.00,'img/laundry.jpeg'),
 ('S3','Swimming Pool',5.50,'img/pool.jpeg'),
 ('S4','Market',0.00,'img/market.jpeg'),
 ('S5','Restaurant',0.00,'img/restaurant.jpeg');
