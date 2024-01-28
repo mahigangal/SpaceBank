@@ -33,9 +33,9 @@ else {
     getConnection();
 }
 
-String sql = "SELECT * FROM customer WHERE customerId = ?";
+String sql = "SELECT * FROM Users WHERE firstName = ?";
 try (PreparedStatement ps = con.prepareStatement(sql)) {
-    ps.setInt(1, Integer.parseInt(custId));
+    ps.setInt(1, Integer.parseInt(fname));
     ResultSet rst = ps.executeQuery();
 
     if (!rst.next()) {
@@ -43,7 +43,7 @@ try (PreparedStatement ps = con.prepareStatement(sql)) {
     }
     else {
 
-		String p = rst.getString("password");
+		String p = rst.getString("pwd");
 
 		if(pass == null || pass.isEmpty()){
 			out.println("<p><strong><b>Enter password!</b></strong></p>");
