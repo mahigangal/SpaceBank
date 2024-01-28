@@ -229,7 +229,7 @@
     <div class="product-details">
         <div class="product-price">$18.00</div>
         <div class="prouct-name">Spices</div>
-       <div class="add-to-cart-link"><a href="addcart.jsp?name=<%= URLEncoder.encode(servName, "UTF-8") %>&price=<%= cost %>">Add to Cart</a></div>
+        <div class="add-to-cart-link"><a href="#">Add to Cart</a></div>
 
     </div>
 </div>
