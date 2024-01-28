@@ -39,12 +39,40 @@ VALUES
 ('S6','Club Penguin Station', 40000, 140000, 1204122, 8000, 310000),
 ('S7','SouthAmeriSky Sanctuary',422501201,741000,120000,140000,5190000);
 
+ALTER TABLE SpaceStation ADD COLUMN survivalTime decimal(5,2);
+UPDATE SpaceStation
+SET survivalTime = 130.41 WHERE stnId = 'S1';
+
+UPDATE SpaceStation
+SET survivalTime = 98.33 WHERE stnId = 'S2';
+
+UPDATE SpaceStation
+SET survivalTime = 99.34 WHERE stnId = 'S3';
+
+UPDATE SpaceStation
+SET survivalTime = 104.14 WHERE stnId = 'S4';
+
+UPDATE SpaceStation
+SET survivalTime = 64.48 WHERE stnId = 'S5';
+
+UPDATE SpaceStation
+SET survivalTime = 12.52 WHERE stnId = 'S6';
+
+UPDATE SpaceStation
+SET survivalTime = 55.14 WHERE stnId = 'S7';
 
 INSERT INTO Users(name,stnId,pwd,sbucks) values
 ('Mithish','S3','123@',800000),
 ('Pratham','S5','Prath123@',920000),
 ('Mahi','S1','Mahi123@',919999),
 ('Sparsh','S2','Sparsh123@',400);
+
+
+ALTER TABLE Users ADD COLUMN LastName varchar(30);
+UPDATE Users Set LastName="Ravisankar" WHERE name="Mithish";
+UPDATE Users Set LastName="Khanna" WHERE name="Sparsh";
+UPDATE Users Set LastName="Gangal" WHERE name="Mahi";
+UPDATE Users Set LastName="Shah" WHERE name="Pratham";
 
 select * from SpaceStation;
 select * from Users;
