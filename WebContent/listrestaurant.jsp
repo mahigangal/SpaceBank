@@ -189,7 +189,7 @@
         <div class="product-card">
             <img src="<%= prodImageURL %>" class="product-image" alt="<%= prodName %>">
             <div class="product-details">
-                <div class="product-price">$<%= prodPrice %></div>
+                <div class="product-price">$<%= String.format("%.2f", prodPrice) %></div>
                 <div class="product-name"><%= prodName %></div>
                 <div class="product-description"><%= prodDesc %></div>
                 <div class="product-capacity">Personal Quota: <%= cap %></div>
