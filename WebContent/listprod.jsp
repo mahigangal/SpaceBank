@@ -220,6 +220,7 @@
                 <div class="prouct-name"><%= servName %></div>
                 <% if (quota > 0) { %>
                     <div class="quota">Quota: <%= quota %></div>
+                    <div class="add-to-cart-link"><a href="#">Add to Cart</a></div>
                 <% } else { %>
                     <div class="quota">Quota: Hidden</div>
                     <% if ("Restaurant".equals(servName)) { %>
