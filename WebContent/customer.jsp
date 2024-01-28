@@ -70,8 +70,8 @@
         }
 
         .profile-image {
-            max-width: 100%; 
-            max-height: 100%;
+            max-width: 40%; 
+            max-height: 40%;
             display: inline-block;
             margin: auto; 
             opacity: 1;
@@ -111,10 +111,10 @@
                             </div>
 
                             <%
-                            String customerSql = "SELECT * FROM Users WHERE name = ?";
+                            String customerSql = "SELECT * FROM Users ";
                             PreparedStatement customerPstmt = con.prepareStatement(customerSql);
-                            customerPstmt.setString(1, userName);
                             ResultSet rs = customerPstmt.executeQuery();
+                            out.println(rs.getString(1));
                             closeConnection();
                         } catch (SQLException ex) {
                             out.println(ex);
