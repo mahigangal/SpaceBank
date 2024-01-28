@@ -148,7 +148,7 @@
         document.querySelector('.container h1').addEventListener('animationend', function () {
             
         });
-        function navigateToSpacecraftPage(spacecraftId) {
+        function navigateToSpacecraftPage(spacecraftId) { 
             // You can implement the navigation logic here
             // Redirect to the page for the selected spacecraft, e.g., window.location.href = 'details.jsp?spacecraft=' + spacecraftId;
         }
