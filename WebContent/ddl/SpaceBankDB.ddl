@@ -134,6 +134,17 @@ SET survivalTime = 12.52 WHERE stnId = 'S6';
 UPDATE SpaceStation
 SET survivalTime = 55.14 WHERE stnId = 'S7';
 
+CREATE TABLE ordersummary (
+    servId       INT IDENTITY,
+    totalAmount  DECIMAL(10,2),
+    Shipname     varchar(100),
+    customerId          INT,
+    firstname    varchar(50),
+    PRIMARY KEY (orderId),
+    FOREIGN KEY (firstname) REFERENCES Users(firstname)
+    ON UPDATE CASCADE ON DELETE CASCADE 
+);
+
 
 select * from services;
 
