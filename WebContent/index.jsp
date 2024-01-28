@@ -100,17 +100,17 @@
 <body>
     <!-- Seven spacecraft images -->
     <!-- Adjust top and left values for each spacecraft to position them uniquely -->
-    <div class="spacecraft" id="spacecraft1" style="top: 30%; left: 0.1%;" onclick="navigateToSpacecraftPage('S1')" onmouseout="hideSpacecraftName()">
+    <div class="spacecraft" id="spacecraft1" style="top: 30%; left: 5%;" onclick="navigateToSpacecraftPage('S1')" onmouseout="hideSpacecraftName()">
         <img src="<%= request.getContextPath() %>/img/spacecraft1.png" alt="Spacecraft 1"  width="500" height="300">
         <div class="spacecraft-name">AsiaCosmo Nexus</div>
     </div>
      
-    <div class="spacecraft" id="spacecraft1" style="top: 7%; left: 15%;" onclick="navigateToSpacecraftPage('S2')" onmouseout="hideSpacecraftName()">
+    <div class="spacecraft" id="spacecraft1" style="top: 5%; left: 15%;" onclick="navigateToSpacecraftPage('S2')" onmouseout="hideSpacecraftName()">
         <img src="<%= request.getContextPath() %>/img/spacecraft1.png" alt="Spacecraft 1"  width="500" height="300">
         <div class="spacecraft-name">Africor Stellar Outpost</div>
     </div>
    
-    <div class="spacecraft" id="spacecraft1" style="top: 8%; left: 40%;" onclick="navigateToSpacecraftPage('S3')" onmouseout="hideSpacecraftName()">
+    <div class="spacecraft" id="spacecraft1" style="top: 8%; left: 42%;" onclick="navigateToSpacecraftPage('S3')" onmouseout="hideSpacecraftName()">
         <img src="<%= request.getContextPath() %>/img/spacecraft1.png" alt="Spacecraft 1"  width="500" height="300">
         <div class="spacecraft-name">NorthAm Nexus Station</div>
     </div>
@@ -120,12 +120,12 @@
         <div class="spacecraft-name">EuroCelestial Haven</div>
     </div>
     
-    <div class="spacecraft" id="spacecraft1" style="top: 55%; left: 65%;" onclick="navigateToSpacecraftPage('S5')" onmouseout="hideSpacecraftName()">
+    <div class="spacecraft" id="spacecraft1" style="top: 59%; left: 65%;" onclick="navigateToSpacecraftPage('S5')" onmouseout="hideSpacecraftName()">
         <img src="<%= request.getContextPath() %>/img/spacecraft1.png" alt="Spacecraft 1"  width="500" height="300">
         <div class="spacecraft-name">AustroOrbit Oasis</div>
     </div>
     
-    <div class="spacecraft" id="spacecraft1" style="top: 60%; left: 31%;" onclick="navigateToSpacecraftPage('S6')" onmouseout="hideSpacecraftName()">
+    <div class="spacecraft" id="spacecraft1" style="top: 65%; left: 35%;" onclick="navigateToSpacecraftPage('S6')" onmouseout="hideSpacecraftName()">
         <img src="<%= request.getContextPath() %>/img/spacecraft1.png" alt="Spacecraft 1"  width="500" height="300">
         <div class="spacecraft-name">Club Penguin Station</div>
     </div>
