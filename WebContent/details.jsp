@@ -70,13 +70,14 @@
         }
 
         .spacecraft-image {
-            max-width: 50%;
+            max-width: 37%;
             height: auto;
+            
         }
 
         .button-left {
             position: absolute;
-            bottom: 40px;
+            bottom: 60px;
             left: 520px;
             background-color: #000;
             color: #fff;
@@ -88,7 +89,7 @@
 
         .button-right {
             position: absolute;
-            bottom: 40px;
+            bottom: 60px;
             right: 520px;
             background-color: #000;
             color: #fff;
@@ -101,7 +102,11 @@
     .button-right:hover {
         background-color: #fff;
         color: #080407;
-        time
+        
+    }
+    .button-left,
+    .button-right {
+        font-size: 20px; 
     }
     </style>
 </head>
@@ -137,9 +142,10 @@
                 <p><%= details %></p>
                 <div class="image-container">
                     <img src="<%= request.getContextPath() %>/img/spacecraft1.png" alt="Spacecraft Image" class="spacecraft-image">
-                    <button class="button-left">Services</button>
-                    <button class="button-right">Login</button>
+                    
                 </div>
+                <button class="button-left" onclick="location.href='listprod.jsp'">Services</button>
+                <button class="button-right" onclick="location.href='login.jsp'">Login</button>
     <%
             }
             rs.close();
