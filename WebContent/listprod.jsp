@@ -172,64 +172,46 @@
         </div>
     </div>
 
+
+
+ <div class="product-card-container">
+        <%
    
-    <!-- <%
-    // Get the context path
-    String contextPath = request.getContextPath();
-%>
+            try {
+                getConnection();
+                String query = "SELECT * FROM services";
+                PreparedStatement pstmt = con.prepareStatement(query);
+                ResultSet rs = pstmt.executeQuery();
 
-<p>Context Path: <%= contextPath %></p> -->
-<div class="product-card-container">
-        <%-- Service 1 --%>
+                while (rs.next()) {
+                    String prodId = rs.getString("servId");
+                    String prodName = rs.getString("servName");
+                    double prodPrice = rs.getDouble("cost");
+                  //  <%-- String prodDesc = rs.getString("prodDesc"); --%>
+                    int cap = rs.getInt("quota");
+                    String prodImageURL = rs.getString("servImageURL");
+        %>
+        <!-- Restaurant Item -->
         <div class="product-card">
-            <img src="img/gym.jpeg" class="product-image" alt="Gym">
-                  
+            <img src="<%= prodImageURL %>" class="product-image" alt="<%= prodName %>">
             <div class="product-details">
-                <div class="product-price">$7.50</div>
-                <div class="prouct-name">Fitness Center</div>
+                <div class="product-price">$<%= String.format("%.2f", prodPrice) %></div>
+                <div class="product-name"><%= prodName %></div>
+             //   <%-- <div class="product-description"><%= prodDesc %></div> --%>
+                <div class="product-capacity">Personal Quota: <%= cap %></div>
                 <div class="add-to-cart-link"><a href="#">Add to Cart</a></div>
             </div>
         </div>
-
-        <%-- Service 2 --%>
-        <div class="product-card">
-            <img src="img/laundry.jpeg" class="product-image" alt="Laundry">
-            <div class="product-details">
-                <div class="product-price">$8.00</div>
-                <div class="prouct-name">Laundromat</div>
-                <div class="add-to-cart-link"><a href="#">Add to Cart</a></div>
-            </div>
-        </div>
-
-        <%-- Service 3 --%>
-        <div class="product-card">
-            <img src="img/market.jpeg" class="product-image" alt="Market">
-            <div class="product-details">
-                <div class="prouct-name">Market</div>
-                <div class="add-to-cart-link"><a href="listmarket.jsp">View</a></div>
-            </div>
-        </div>
-
-        <%-- Service 4 --%>
-        <div class="product-card">
-            <img src="img/pool.jpeg" class="product-image" alt="Pool">
-            <div class="product-details">
-                <div class="product-price">$5.50</div>
-                <div class="prouct-name">Swimming Pool</div>
-                <div class="add-to-cart-link"><a href="#">Add to Cart</a></div>
-            </div>
-        </div>
-        <%-- Service 5 --%>
-        <div class="product-card">
-            <img src="img/restaurant.jpeg" class="product-image" alt="Resto">
-            <div class="product-details">
-                
-                <div class="prouct-name">Restaurant</div>
-                <div class="add-to-cart-link"><a href="listrestaurant.jsp">View</a></div>
-            </div>
-        </div>
-      
+        <!-- End of Restaurant Item -->
+        <%
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } finally {
+                // Close resources
+                closeConnection();
+            }
+        %>
     </div>
-    <div class="background-container"></div>
 </body>
 </html>

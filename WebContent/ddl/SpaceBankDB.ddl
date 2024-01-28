@@ -20,14 +20,14 @@ CREATE TABLE SpaceStation(
 );
 
 CREATE TABLE Users(
-name varchar(50),
+firstname varchar(50),
+lastname varchar(50),
 stnId char(2),
 pwd varchar(30),
 sbucks int,
-PRIMARY KEY(name),
+PRIMARY KEY(firstname),
 FOREIGN KEY (stnId) REFERENCES SpaceStation(stnId) ON UPDATE CASCADE ON DELETE CASCADE
 );
-
 
 INSERT INTO SpaceStation(stnId, stnName, pop, food, oxygen, energy, water)
 VALUES
@@ -39,40 +39,12 @@ VALUES
 ('S6','Club Penguin Station', 40000, 140000, 1204122, 8000, 310000),
 ('S7','SouthAmeriSky Sanctuary',422501201,741000,120000,140000,5190000);
 
-ALTER TABLE SpaceStation ADD COLUMN survivalTime decimal(5,2);
-UPDATE SpaceStation
-SET survivalTime = 130.41 WHERE stnId = 'S1';
 
-UPDATE SpaceStation
-SET survivalTime = 98.33 WHERE stnId = 'S2';
-
-UPDATE SpaceStation
-SET survivalTime = 99.34 WHERE stnId = 'S3';
-
-UPDATE SpaceStation
-SET survivalTime = 104.14 WHERE stnId = 'S4';
-
-UPDATE SpaceStation
-SET survivalTime = 64.48 WHERE stnId = 'S5';
-
-UPDATE SpaceStation
-SET survivalTime = 12.52 WHERE stnId = 'S6';
-
-UPDATE SpaceStation
-SET survivalTime = 55.14 WHERE stnId = 'S7';
-
-INSERT INTO Users(name,stnId,pwd,sbucks) values
-('Mithish','S3','123@',800000),
-('Pratham','S5','Prath123@',920000),
-('Mahi','S1','Mahi123@',919999),
-('Sparsh','S2','Sparsh123@',400);
-
-
-ALTER TABLE Users ADD COLUMN LastName varchar(30);
-UPDATE Users Set LastName="Ravisankar" WHERE name="Mithish";
-UPDATE Users Set LastName="Khanna" WHERE name="Sparsh";
-UPDATE Users Set LastName="Gangal" WHERE name="Mahi";
-UPDATE Users Set LastName="Shah" WHERE name="Pratham";
+INSERT INTO Users(firstname,lastname,stnId,pwd,sbucks) values
+('Mithish','Ravisankar','S3','Mithish123@',800000),
+('Pratham','Shah','S5','Pratham123@',920000),
+('Mahi','Gangal','S1','Mahi123@',919999),
+('Sparsh','Khanna','S2','Sparsh123@',400);
 
 select * from SpaceStation;
 select * from Users;
@@ -84,6 +56,8 @@ servName varchar(40),
 cost decimal(5,2),
 servImageURL varchar(150)
 );
+
+
 
 
 CREATE TABLE Market(
@@ -110,12 +84,18 @@ insert into services(servId, servName,cost,servImageURL) values
 ('S4','Market',0.00,'img/market.jpeg'),
 ('S5','Restaurant',0.00,'img/restaurant.jpeg');
 
-ALTER TABLE services ADD COLUMN quota int;
+
+
+ALTER TABLE services ADD quota int;
 UPDATE services SET quota=5 WHERE servId='S1';
 UPDATE services SET quota=1 WHERE servId='S2';
 UPDATE services SET quota=2 WHERE servId='S3';
 UPDATE services SET quota=0 WHERE servId='S4';
 UPDATE services SET quota=0 WHERE servId='S5';
+
+
+select * from services;
+
 
 
 insert into Market(prodId, prodName,prodPrice,prodDesc, cap, prodImageURL) values
@@ -127,11 +107,41 @@ insert into Market(prodId, prodName,prodPrice,prodDesc, cap, prodImageURL) value
 ('P6','Hygiene Products',14.30,'Includes soap, feminine hygiene products and dental care',60,'img/hygiene products.jpeg'),
 ('P7','Spices',18.00,'A bunch of exotic spices including chili powder, coriander powder, etc.',10,'img/spices.jpeg');
 
+
+
 insert into Restaurant(prodId, prodName,prodPrice,prodDesc, cap, prodImageURL) values
 ('R1','Chicken Biryani',14.50,'Savory chicken and rice dish that includes layers of chicken, rice, and aromatics.',10,'img/chickenbiryani.jpeg'),
 ('R2','Bruschetta',8.00,'Slice of garlic bread toasted in the oven topped with olive oil, tomatoes and salt',25,'img/garlicbreadbruschetta.jpeg'),
 ('R3','Grilled Chicken',12.50,'Juicy chicken breast seasoned and grilled over an open flame',30,'img/grilledchicken.jpeg'),
 ('R4','Maggi',4.25,'Clasic Indian snack',50,'img/maggi.jpeg'),
 ('R5','Omelette',6.75,'A dish made by mixing eggs together and frying them',45,'img/omelette.jpeg'),
-
 ('R6','Marinara Pasta',14.00,'Pasta tossed in a tomato sauce usually made with tomatoes, garlic, herbs, and onions.',30,'img/pasta.jpeg');
+
+ALTER TABLE SpaceStation ADD survivalTime decimal(5,2);
+UPDATE SpaceStation
+SET survivalTime = 130.41 WHERE stnId = 'S1';
+
+UPDATE SpaceStation
+SET survivalTime = 98.33 WHERE stnId = 'S2';
+
+UPDATE SpaceStation
+SET survivalTime = 99.34 WHERE stnId = 'S3';
+
+UPDATE SpaceStation
+SET survivalTime = 104.14 WHERE stnId = 'S4';
+
+UPDATE SpaceStation
+SET survivalTime = 64.48 WHERE stnId = 'S5';
+
+UPDATE SpaceStation
+SET survivalTime = 12.52 WHERE stnId = 'S6';
+
+UPDATE SpaceStation
+SET survivalTime = 55.14 WHERE stnId = 'S7';
+
+
+select * from services;
+
+
+select * from SpaceStation;
+
