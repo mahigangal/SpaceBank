@@ -42,17 +42,18 @@
             justify-content: space-between;
         }
         .background-container {
-            position: absolute;
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('<%= request.getContextPath() %>/img/Space.jpg');
+            z-index: -1;
+            background-image: url('<%= request.getContextPath() %>WebContent/img/Space.jpg'); /* Replace with your background image path */
             background-size: cover;
             background-position: center;
-            z-index: -1;
+            background-repeat: no-repeat;
+            filter: brightness(0.5); /* Optional: Adjust the brightness of the background */
         }
-
         .header-title {
             position: absolute;
             top: 50%;
