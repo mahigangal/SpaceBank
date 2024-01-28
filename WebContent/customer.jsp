@@ -111,10 +111,27 @@
                             </div>
 
                             <%
-                            String customerSql = "SELECT * FROM Users ";
+                            String customerSql = "SELECT * FROM Users where firstname = ?";
                             PreparedStatement customerPstmt = con.prepareStatement(customerSql);
+                            customerPstmt.setString(1, userName);
+                            
                             ResultSet rs = customerPstmt.executeQuery();
-                            out.println(rs.getString(1));
+
+                            if(rs.next()){
+                                %>
+                                <div class="alert alert-info" role="alert">
+                                    Welcome, <%= rs.getString("firstname") %> <%= rs.getString("lastname") %>!
+                                    Your SpaceStation ID: <%= rs.getString("stnId") %>
+                                    Your SpaceBucks: <%= rs.getInt("sbucks") %>
+                                </div>
+                            <%
+                            }
+                            %>
+
+                            <%
+                            
+
+
                             closeConnection();
                         } catch (SQLException ex) {
                             out.println(ex);
