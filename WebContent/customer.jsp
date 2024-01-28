@@ -25,12 +25,7 @@
             color: white;
             font-size: 16px;
         }
-
-        .ribbon a {
-            color: white;
-            margin: 0 15px;
-            text-decoration: none;
-        }
+        
 
         .navbar {
             background-color: #000000;
@@ -56,15 +51,6 @@
             margin-top: 20px;
         }
 
-        .table th,
-        .table td {
-            text-align: center;
-        }
-
-        .alert {
-            margin-top: 20px;
-    
-        }
         .profile-image-container {
             text-align: center;
         }
@@ -75,6 +61,56 @@
             display: inline-block;
             margin: auto; 
             opacity: 1;
+        }
+
+        .user-info {
+            text-align: center;
+            color: white;
+            margin-top: 20px;
+        }
+
+        h3 {
+            font-family: 'Bangers', cursive;
+            text-align: center;
+            color: #fff;
+            font-size: 3em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 2px solid #fff;
+            animation: typing 4s steps(30, end);
+            display: inline-block;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 10px;
+        }
+
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
+        }
+
+      
+        .info-text {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .transaction-button {
+            background-color: #000000;
+            color: white;
+            border: none;
+            padding: 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .transaction-button:hover {
+            background-color: #333;
         }
     </style>
 </head>
@@ -110,28 +146,40 @@
                                 <img src="img/atro.png" alt="Profile Image" class="profile-image">
                             </div>
 
-                            <%
-                            String customerSql = "SELECT * FROM Users where firstname = ?";
-                            PreparedStatement customerPstmt = con.prepareStatement(customerSql);
-                            customerPstmt.setString(1, userName);
-                            
-                            ResultSet rs = customerPstmt.executeQuery();
+                            <div class="user-info">
+                                <%
+                                    String customerSql = "SELECT * FROM Users where firstname = ?";
+                                    PreparedStatement customerPstmt = con.prepareStatement(customerSql);
+                                    customerPstmt.setString(1, userName);
+                                    ResultSet rs = customerPstmt.executeQuery();
 
-                            if(rs.next()){
+                                    if(rs.next()){
                                 %>
-                                <div class="alert alert-info" role="alert">
-                                    Welcome, <%= rs.getString("firstname") %> <%= rs.getString("lastname") %>!
-                                    Your SpaceStation ID: <%= rs.getString("stnId") %>
-                                    Your SpaceBucks: <%= rs.getInt("sbucks") %>
+                                <script>
+                                    document.querySelector('.container h3').addEventListener('animationend', function () {
+                                        
+                                    }); 
+                                </script>
+                                <div class="h3">
+                                    <div class="info-text">
+                                        Welcome, <%= rs.getString("firstname") %> <%= rs.getString("lastname") %>!
+                                    </div>
+                                    <div class="info-text">
+                                        Your SpaceStation ID: <%= rs.getString("stnId") %>
+                                    </div>
+                                    <div class="info-text">
+                                        Your SpaceBucks: $ <%= rs.getInt("sbucks") %>
+                                    </div>
                                 </div>
-                            <%
-                            }
-                            %>
+                                <%
+                                    }
+                                %>
+                            </div>
+
+                          
+
 
                             <%
-                            
-
-
                             closeConnection();
                         } catch (SQLException ex) {
                             out.println(ex);
@@ -141,6 +189,8 @@
             </div>
         </div>
     </div>
+
+   
 </body>
 
 </html>
