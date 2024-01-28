@@ -16,8 +16,8 @@
 
 <% 
 // Get customer id
-String custId = request.getParameter("customerId");
-String pass = request.getParameter("password");
+String fname = request.getParameter("firstName");
+String pass = request.getParameter("pwd");
 @SuppressWarnings({"unchecked"})
 HashMap<String, ArrayList<Object>> productList = (HashMap<String, ArrayList<Object>>) session.getAttribute("productList");
 
@@ -25,7 +25,7 @@ HashMap<String, ArrayList<Object>> productList = (HashMap<String, ArrayList<Obje
 // Determine if there are products in the shopping cart
 // If either are not true, display an error message
 
-if (custId == null || !custId.matches("\\d+")) {
+if (fname == null || !fname.matches("\\d+")) {
     out.println("<p><strong><b>Invalid customer id. Go back to the previous page and try again</b></strong></p>");
 } 
 else {

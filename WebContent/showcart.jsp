@@ -174,7 +174,7 @@
 
         out.println("<div class='action-buttons'>");
         out.println("<a class='continue-shopping' href='listprod.jsp'>Continue Shopping</a>");
-        out.println("<a class='checkout-button' href='checkout.jsp'>Check Out</a>");
+        out.println("<a class='checkout-button' href='order.jsp'>Check Out</a>");
         out.println("</div>");
     }
 %>
