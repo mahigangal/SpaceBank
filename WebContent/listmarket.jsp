@@ -5,7 +5,7 @@
 <html lang="en">
 
 <head>
-    <title>Spacebank</title>
+    <title>SpaceBank</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
@@ -150,8 +150,7 @@
     </div>
 
     <div class="header-ribbon">
-        <div class="header-title">Welcome to SpaceBank's Services</div>
-
+        <div class="header-title">Welcome to SpaceBank's Market</div>
         <div class="user-info">
             Welcome,
             <% 
@@ -163,77 +162,9 @@
         </div>
     </div>
 
-    <form method="get" action="listprod.jsp">
+    <form method="get" action="listmarket.jsp">
         <input type="text" name="productName" placeholder="Product Name">
-        <select name="category">
-            <option value="">All</option>
-            <option value="Beverages">Beverages</option>
-            <option value="Condiments">Condiments</option>
-            <option value="Dairy Products">Dairy Products</option>
-            <option value="Produce">Produce</option>
-            <option value="Confections">Confections</option>
-            <option value="Grains/Cereals">Grains/Cereals</option>
-        </select>
+        
         <input type="submit" value="Submit">
         <input type="reset" value="Reset"> (Leave blank for all products)
     </form>
-    <!-- <%
-    // Get the context path
-    String contextPath = request.getContextPath();
-%>
-
-<p>Context Path: <%= contextPath %></p> -->
-<div class="product-card-container">
-        <%-- Service 1 --%>
-        <div class="product-card">
-            <img src="img/gym.jpeg" class="product-image" alt="Gym">
-                  
-            <div class="product-details">
-                <div class="product-price">$7.50</div>
-                <div class="prouct-name">Fitness Center</div>
-                <div class="add-to-cart-link"><a href="#">Add to Cart</a></div>
-            </div>
-        </div>
-
-        <%-- Service 2 --%>
-        <div class="product-card">
-            <img src="img/laundry.jpeg %>" class="product-image" alt="Laundry">
-            <div class="product-details">
-                <div class="product-price">$8.00</div>
-                <div class="prouct-name">Laundromat</div>
-                <div class="add-to-cart-link"><a href="#">Add to Cart</a></div>
-            </div>
-        </div>
-
-        <%-- Service 3 --%>
-        <div class="product-card">
-            <img src="img/market.jpeg" class="product-image" alt="Market">
-            <div class="product-details">
-                <div class="prouct-name">Market</div>
-                <div class="add-to-cart-link"><a href="listmarket.jsp">View</a></div>
-            </div>
-        </div>
-
-        <%-- Service 4 --%>
-        <div class="product-card">
-            <img src="img/pool.jpeg" class="product-image" alt="Pool">
-            <div class="product-details">
-                <div class="product-price">$5.50</div>
-                <div class="prouct-name">Swimming Pool</div>
-                <div class="add-to-cart-link"><a href="#">Add to Cart</a></div>
-            </div>
-        </div>
-        <%-- Service 5 --%>
-        <div class="product-card">
-            <img src="img/restaurant.jpeg" class="product-image" alt="Resto">
-            <div class="product-details">
- 
-                <div class="prouct-name">Restaurant</div>
-                <div class="add-to-cart-link"><a href="listrestaurant.jsp">View</a></div>
-
-            </div>
-        </div>
-      
-    </div>
-</body>
-</html>
