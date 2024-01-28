@@ -110,6 +110,11 @@ insert into services(servId, servName,cost,servImageURL) values
 ('S4','Market',0.00,'img/market.jpeg'),
 ('S5','Restaurant',0.00,'img/restaurant.jpeg');
 
+ALTER TABLE services ADD COLUMN quota int;
+UPDATE services SET quota=5 WHERE servId='S1';
+UPDATE services SET quota=1 WHERE servId='S2';
+UPDATE services SET quota=2 WHERE servId='S3';
+
 insert into Market(prodId, prodName,prodPrice,prodDesc, cap, prodImageURL) values
 ('P1','Bread',4.50,'Flour based white bread, contains gluten and dairy',30,'img/bread.jpeg'),
 ('P2','Chicken Breasts',14.75,'Boneless and Skinless Chicken Breasts, 4 breasts',25,'img/chicken.jpeg'),
