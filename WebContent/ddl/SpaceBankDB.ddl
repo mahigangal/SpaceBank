@@ -97,4 +97,5 @@ insert into Restaurant(prodId, prodName,prodPrice,prodDesc, cap, prodImageURL) v
 ('R3','Grilled Chicken',12.50,'Juicy chicken breast seasoned and grilled over an open flame',30,'img/grilledchicken.jpeg'),
 ('R4','Maggi',4.25,'Clasic Indian snack',50,'img/maggi.jpeg'),
 ('R5','Omelette',6.75,'A dish made by mixing eggs together and frying them',45,'img/omelette.jpeg'),
+
 ('R6','Marinara Pasta',14.00,'Pasta tossed in a tomato sauce usually made with tomatoes, garlic, herbs, and onions.',30,'img/pasta.jpeg');
