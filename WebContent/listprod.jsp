@@ -208,6 +208,9 @@
                     double cost = rs.getDouble("cost");
                     String imageURL = rs.getString("servImageURL");
                     int quota = rs.getInt("quota");
+                    String addCartLink = "addcart.jsp?id=" + servId +
+                                "&name=" + URLEncoder.encode(servName, "UTF-8") +
+                                "&price=" + cost;
 
                     // Add a class for styling based on quota
                     String attentionClass = (quota == 0) ? "attention" : "";
@@ -220,7 +223,7 @@
                 <div class="prouct-name"><%= servName %></div>
                 <% if (quota > 0) { %>
                     <div class="quota">Quota: <%= quota %></div>
-                    <div class="add-to-cart-link"><a href="#">Add to Cart</a></div>
+                    <div class="add-to-cart-link"><a href="<%= addCartLink %>">Add to Cart</a></div>
                 <% } else { %>
                     <div class="quota">Quota: Hidden</div>
                     <% if ("Restaurant".equals(servName)) { %>
@@ -228,7 +231,7 @@
                     <% } else if ("Market".equals(servName)) { %>
                         <div class="add-to-cart-link"><a href="listmarket.jsp">View</a></div>
                     <% } else { %>
-                        <div class="add-to-cart-link"><a href="#">Add to Cart</a></div>
+                        <p class="add-to-cart-link"><a href="#">Add to Cart</a></p>
                     <% } %>
                 <% } %>
             </div>

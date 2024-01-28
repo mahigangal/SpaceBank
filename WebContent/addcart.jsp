@@ -12,10 +12,10 @@ if (productList == null)
 
 // Add new product selected
 // Get product information
-char id = request.getParameter("id");
+String id = request.getParameter("id");
 String name = request.getParameter("name");
-double price = request.getParameter("price");
-char sid = request.getParameter("sid");
+String price = request.getParameter("price");
+
 
 Integer quantity = new Integer(1);
 
@@ -25,7 +25,6 @@ product.add(id);
 product.add(name);
 product.add(price);
 product.add(quantity);
-product.add(sid);
 
 // Update quantity if add same item to order again
 if (productList.containsKey(id))
