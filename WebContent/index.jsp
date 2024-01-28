@@ -70,7 +70,7 @@
             white-space: nowrap;
             overflow: hidden;
             border-right: 2px solid #fff;
-            animation: typing 3s steps(15, end);
+            animation: typing 4s steps(30, end);
             display: inline-block;
         }
 
@@ -151,6 +151,7 @@
         function navigateToSpacecraftPage(spacecraftId) { 
             // You can implement the navigation logic here
             // Redirect to the page for the selected spacecraft, e.g., window.location.href = 'details.jsp?spacecraft=' + spacecraftId;
+            window.location.href = 'details.jsp?spacecraft=' + spacecraftId;
         }
     </script>
 </body>
