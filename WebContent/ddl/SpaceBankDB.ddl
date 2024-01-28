@@ -140,7 +140,7 @@ CREATE TABLE ordersummary (
     Shipname     varchar(100),
     customerId          INT,
     firstname    varchar(50),
-    PRIMARY KEY (orderId),
+    PRIMARY KEY (servId),
     FOREIGN KEY (firstname) REFERENCES Users(firstname)
     ON UPDATE CASCADE ON DELETE CASCADE 
 );

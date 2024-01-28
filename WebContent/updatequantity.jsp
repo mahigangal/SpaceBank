@@ -4,30 +4,30 @@
 <%@ page import="java.sql.*, java.io.PrintWriter, java.net.URLEncoder, java.text.NumberFormat" %>
 <%@ include file="jdbc.jsp" %>
 
-<%!  // Use <%! to declare methods in JSP
+<%!  
+    public class ServiceLimits {
+        public int quota;
+        public int cap;
+    }
 
-    // Function to check if the requested quantity is available in the inventory
-    boolean isQuantityAvailable(String prodId, int requestedQuantity) {
-        boolean available = false;
+    ServiceLimits getServiceLimits(String servId) {
+        ServiceLimits limits = new ServiceLimits();
         PreparedStatement ps = null;
         ResultSet rs = null;
 
         try {
-            // Check if the requested quantity is available
-            String sql = "SELECT quantity FROM productinventory WHERE productId = ?";
+            String sql = "SELECT quota, cap FROM services WHERE servId = ?";
             ps = con.prepareStatement(sql);
-            ps.setString(1, prodId);
+            ps.setString(1, servId);
             rs = ps.executeQuery();
 
             if (rs.next()) {
-                int availableQuantity = rs.getInt("quantity");
-                available = (requestedQuantity <= availableQuantity);
+                limits.quota = rs.getInt("quota");
+                limits.cap = rs.getInt("cap");
             }
         } catch (SQLException e) {
-            // Handle SQLException
             e.printStackTrace();
         } finally {
-            // Close resources
             try {
                 if (rs != null) rs.close();
                 if (ps != null) ps.close();
@@ -36,54 +36,49 @@
             }
         }
 
-        return available;
+        return limits;
     }
-
 %>
 
 <%
-    // Initialize the PrintWriter for writing the response
     PrintWriter responseWriter = response.getWriter();
 
     try {
-        // Establish the database connection
         getConnection();
 
-        // Get the product ID and updated quantity from the request
-        String productId = request.getParameter("productId");
-        int newQuantity = Integer.parseInt(request.getParameter("quantity"));
+        String servId = request.getParameter("servId");
+        String quantityParameter = request.getParameter("quota");
 
-        // Get the current list of products from the session
-        @SuppressWarnings({"unchecked"})
-        HashMap<String, ArrayList<Object>> productList = (HashMap<String, ArrayList<Object>>) session.getAttribute("productList");
+        if (quantityParameter != null && !quantityParameter.isEmpty()) {
+            int newQuantity = Integer.parseInt(quantityParameter);
 
-        // Check if the product list is not null and contains the specified product
-        if (productList != null && productList.containsKey(productId)) {
-            ArrayList<Object> product = productList.get(productId);
+            HashMap<String, ArrayList<Object>> productList = (HashMap<String, ArrayList<Object>>) session.getAttribute("productList");
 
-            // Check if the new quantity is valid (greater than or equal to 1)
-            if (newQuantity >= 1) {
-            
+            if (productList != null && productList.containsKey(servId)) {
+                ArrayList<Object> product = productList.get(servId);
+
+                ServiceLimits limits = getServiceLimits(servId);
+
+                if (newQuantity >= 1 && newQuantity <= limits.quota && newQuantity <= limits.cap) {
                     product.set(3, newQuantity);
                 } else {
+                    // If the requested quantity exceeds the available quota or cap, set it to the maximum allowed
+                    int maxAllowed = Math.min(limits.quota, limits.cap);
                     
-                    
-                    responseWriter.println("<p>Sorry, the requested quantity is not valid!.</p>");
+                    responseWriter.println("<p>Sorry, the requested quantity exceeds the available quota or cap. Setting to the maximum allowed: " + maxAllowed + ".</p>");
+                    product.set(3, maxAllowed);
                 }
             } else {
-                // If the new quantity is 0 or less, remove the item from the cart
-                productList.remove(productId);
-                responseWriter.println("<p>Invalid quantity. The item has been removed from the cart.</p>");
+                responseWriter.println("<p>Invalid request. The item is not in the cart.</p>");
             }
 
-            // Update the session attribute with the modified product list
             session.setAttribute("productList", productList);
+        } else {
+            responseWriter.println("<p>Invalid request. Please provide a valid quantity.</p>");
         }
-    finally {
-        // Close the database connection
+    } finally {
         closeConnection();
     }
 
-    // Redirect back to the shopping cart page
     response.sendRedirect("showcart.jsp");
 %>
