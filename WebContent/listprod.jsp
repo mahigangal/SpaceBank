@@ -144,13 +144,13 @@
 
 <body>
     <div class="navbar">
-        <a href="index.jsp">New Main Page</a>
+        <a href="index.jsp">Main Page</a>
         <a href="customer.jsp">Customer Info</a>
         <a href="logout.jsp">Log out</a>
     </div>
 
     <div class="header-ribbon">
-        <div class="header-title">Welcome to SpaceBanks</div>
+        <div class="header-title">Welcome to SpaceBank's Services</div>
         <div class="user-info">
             Welcome,
             <% 
