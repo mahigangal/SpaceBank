@@ -176,50 +176,69 @@
     <div class="product-card-container">
         <%-- Service 1 --%>
         <div class="product-card">
-            <img src="img/gym.jpeg" class="product-image" alt="Gym">
+            <img src="img/bread.jpeg" class="product-image" alt="Bread Loaf">
                   
             <div class="product-details">
-                <div class="product-price">$7.50</div>
-                <div class="prouct-name">Fitness Center</div>
+                <div class="product-price">$4.50</div>
+                <div class="prouct-name">Bread Loaf</div>
                 <div class="add-to-cart-link"><a href="#">Add to Cart</a></div>
             </div>
         </div>
 
         <%-- Service 2 --%>
         <div class="product-card">
-            <img src="img/laundry.jpeg" class="product-image" alt="Laundry">
+            <img src="img/milk.jpeg" class="product-image" alt="Milk">
             <div class="product-details">
-                <div class="product-price">$8.00</div>
-                <div class="prouct-name">Laundromat</div>
+                <div class="product-price">$5.75</div>
+                <div class="prouct-name">Milk</div>
                 <div class="add-to-cart-link"><a href="#">Add to Cart</a></div>
             </div>
         </div>
 
         <%-- Service 3 --%>
         <div class="product-card">
-            <img src="img/market.jpeg" class="product-image" alt="Market">
+            <img src="img/egg.jpeg" class="product-image" alt="Brown Eggs">
             <div class="product-details">
-                <div class="prouct-name">Market</div>
-                <div class="add-to-cart-link"><a href="listmarket.jsp">View</a></div>
+                <div class="product-price">$7.50</div>
+                <div class="prouct-name">Brown Eggs</div>
+                <div class="add-to-cart-link"><a href="#">Add to Cart</a></div>
             </div>
         </div>
 
         <%-- Service 4 --%>
         <div class="product-card">
-            <img src="img/pool.jpeg" class="product-image" alt="Pool">
+            <img src="img/chicken.jpeg" class="product-image" alt="Chicken Breasts">
             <div class="product-details">
-                <div class="product-price">$5.50</div>
-                <div class="prouct-name">Swimming Pool</div>
+                <div class="product-price">$14.75</div>
+                <div class="prouct-name">Chicken Breasts</div>
                 <div class="add-to-cart-link"><a href="#">Add to Cart</a></div>
             </div>
         </div>
         <%-- Service 5 --%>
         <div class="product-card">
-            <img src="img/restaurant.jpeg" class="product-image" alt="Resto">
+            <img src="img/freshproduce.jpeg" class="product-image" alt="Vegetables">
             <div class="product-details">
-                
-                <div class="prouct-name">Restaurant</div>
-                <div class="add-to-cart-link"><a href="listrestaurant.jsp">View</a></div>
+                <div class="product-price">$9.25</div>
+                <div class="prouct-name">Fresh Produce</div>
+                <div class="add-to-cart-link"><a href="#">Add to Cart</a></div>
+            </div>
+        </div>
+        <%-- Service 6 --%>
+        <div class="product-card">
+            <img src="img/hygieneproducts.png" class="product-image" alt="Hygiene Products">
+            <div class="product-details">
+                <div class="product-price">$14.30</div>
+                <div class="prouct-name">Hygiene Products</div>
+                <div class="add-to-cart-link"><a href="#">Add to Cart</a></div>
+            </div>
+        </div>
+        <%-- Service 7 --%>
+        <div class="product-card">
+            <img src="img/spices.jpeg" class="product-image" alt="Spices">
+            <div class="product-details">
+                <div class="product-price">$18.00</div>
+                <div class="prouct-name">Spices</div>
+                <div class="add-to-cart-link"><a href="#">Add to Cart</a></div>
             </div>
         </div>
       
